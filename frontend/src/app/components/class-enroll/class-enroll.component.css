@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+body {
+    font-family: 'Barlow';
+}
+
+form {
+    margin: 30px auto 70px;
+    padding: 40px 40px 40px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    background-color: white;
+  }
+  
+  label {
+    color: #007bac;
+    font-weight: bold;
+  }
+
+h1 {
+    font-weight: bold;
+    font-size: 50px;
+	color: #007bac;
+}
+
+h3 {
+	font-weight: bold;
+	color: #007bac;
+}
+
+
+h2 {
+    margin-top: 40px;
+	font-family: 'Dosis', sans-serif !important;
+	color: #007bac;
+	text-align: center;
+}
+
+h5 {
+    margin-top: 50px;
+	color: #007bac;
+	text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#logo{
+    font-size: 2vw;
+  }
+  @media screen and (max-width: 600px ) {
+    #logo{
+      font-size: 4vw;
+    }
+    .nav-link:hover{
+      border:none;
+      color: green;
+    }
+    .navbar-collapse{
+      background: white;
+    }
+  }
+  
+  .form-control {
+    border: 1.5px solid #B8B8B8;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+  }
+  
+  #signup-btn, #login-btn{
+    color: white;
+  }
+  
+    th {
+    color: #007bac;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  td {
+    color: #007bac;
+    text-align: center;
+    font-size: 16px;
+    padding: 50px;
+  }  

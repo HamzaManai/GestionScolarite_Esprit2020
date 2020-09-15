@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Student Portal System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </div>
+</nav>
+
+<div class="container mt-5">
+  <form>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" name="username" class="form-control" [(ngModel)]="username" />
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" class="form-control" [(ngModel)]="password" />
+    </div>
+    <!-- <div >
+       <label>Choose Account Type</label>
+       <select class="custom-select">
+          <option selected>Tution Officer</option>
+          <option>Exam Service Officer</option>
+      </select>
+    </div> -->
+    <button class="btn btn-lg btn-primary" type="submit">Login</button>
+  </form>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6>About</h6>
+        <p class="text-justify">
+          Cutting Edge is a School Management System Build on MEAN Stack
+        </p>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+     <a href="#">Cutting Edge</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+

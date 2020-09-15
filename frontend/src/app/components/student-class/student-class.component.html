@@ -1,0 +1,54 @@
+<div class="container-fluid display-table">
+
+
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation" style="width:300px" >
+                <div class="logo" style="background-color: white;" >
+                    <a hef="home.html"><img src="../../../assets/images/school.jpg" alt="merkery_logo" class="hidden-xs hidden-sm">
+
+
+                    </a>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li ><a href="/student/main"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Acceuil</span></a></li>
+                        <li><a href="/student/class/" ><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Votre Class et Modules</span></a></li>
+                        <li><a href="/student/complain" ><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Messagerie</span></a></li>
+
+                        <li><a (click)="logout()" style="cursor: pointer;"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Déconexion</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+  <div class="container">
+    <div class="jumbotron mt-5">
+        <div class="col-sm-8 mx-auto">
+          <h1 class="text-center">Classe et Modules</h1><br>
+          <hr>
+        </div>
+      </div>
+      <p *ngIf="currentUser.studClass==null" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">You're not enrolled yet!</p>
+
+      <!-- Employee list -->
+      <table class="table table-bordered" *ngIf="currentUser.studClass!= null">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col">Classe</th>
+            <th colspan="2"  scope="col">Modules</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr >
+            <td>{{currentUser.studClass.name}}</td>
+            <td *ngFor="let crs of Class.courses; let i = index">{{crs.name}}</td>
+
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
