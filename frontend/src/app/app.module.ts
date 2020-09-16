@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
 import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';  
+import { SignupComponent } from './components/signup/signup.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MatListModule } from '@angular/material/list';
 
@@ -50,12 +50,6 @@ import { TeacherClassViewComponent } from './components/teacher-class-view/teach
 import { StudentProfileComponent } from './components/student-profile/student-profile.component';
 import { StudentComplainComponent } from './components/student-complain/student-complain.component';
 import { HodComplainViewComponent } from './components/hod-complain-view/hod-complain-view.component';
-import { AgentScolariteMainComponent } from './agent-scolarite-main/agent-scolarite-main.component';
-import { AgentScolariteCreateComponent } from './agent-scolarite-create/agent-scolarite-create.component';
-import { AgentScolariteEditComponent } from './agent-scolarite-edit/agent-scolarite-edit.component';
-import { AgentScolariteListComponent } from './agent-scolarite-list/agent-scolarite-list.component';
-import { AgentExamCreateComponent } from './agent-exam-create/agent-exam-create.component';
-import { AgentExamEditComponent } from './agent-exam-edit/agent-exam-edit.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -68,7 +62,7 @@ export function tokenGetter() {
     LoginComponent,
     SignupComponent,
     LoginAdminComponent,
-   
+
     HomepageComponent,
     TeacherCreateComponent,
     DepartmentCreateComponent,
@@ -91,14 +85,9 @@ export function tokenGetter() {
     StudentProfileComponent,
     StudentComplainComponent,
     HodComplainViewComponent,
-    AgentScolariteMainComponent,
-    AgentScolariteCreateComponent,
-    AgentScolariteEditComponent,
-    AgentScolariteListComponent,
-    AgentExamCreateComponent,
-    AgentExamEditComponent
 
-   
+
+
   ],
   imports: [
     BrowserModule,
@@ -108,10 +97,10 @@ export function tokenGetter() {
     HttpClientModule,
     MatCheckboxModule,
     NgSelectModule,
-    
-    
-   
- 
+
+
+
+
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -119,9 +108,9 @@ export function tokenGetter() {
         blacklistedRoutes: ['localhost:4000/users/login']
       }
     }),
-    
-   
- 
+
+
+
     BrowserAnimationsModule
   ],
   providers: [ApiService,ApiDashService, {provide: HTTP_INTERCEPTORS,
