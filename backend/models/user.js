@@ -12,19 +12,20 @@ var User = new Schema({
         type: String,
           default: ''
       },
-      email : {
-        type: String,
-          default: ''
-
-      },
+      
       DateNaiss : {
-        type: Number,
+        type: Date,
         default: ''
 
       },
       tlf : {
         type: Number,
         default: ''
+
+      },
+      email : {
+        type: String,
+          default: ''
 
       },
       role: {// 0: Admin 1: Student 2: Teacher 3: Exam Officer 4: Tution Agent 

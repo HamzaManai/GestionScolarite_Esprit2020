@@ -78,7 +78,7 @@ model.exports={
       }, (error, data) => {
         if (error) {
           return next(error);
-          console.log(error)
+  
         } else {
           res.json(data)
           console.log('Data updated successfully')
@@ -86,8 +86,8 @@ model.exports={
       })
     }
     ,
-    deltEmpl : (req, res, next) => {
-        Department.find({_id:req.params.id}).deleteOne((err,data)=>
+    deltEmpl : (req, res,next) => {
+        Department.find({_id:req.params.id}).deleteOne(( err,data)=>
         {
           console.log("Department Removed")
           return res.json(data)
@@ -166,3 +166,4 @@ model.exports={
 
 
 }
+

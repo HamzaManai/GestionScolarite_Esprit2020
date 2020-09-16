@@ -213,6 +213,8 @@ router.route('/priority/:id').put((req, res, next) => {
   })
 })
 
+
+//Create teacher
 router.post('/signup', (req, res, next) => {
 
   User.register(new User({username: req.body.username}), 
@@ -229,6 +231,12 @@ router.post('/signup', (req, res, next) => {
         user.lastname = req.body.lastname;
         if(req.body.admin)
         user.admin=req.body.admin;
+        if(req.body.DateNaiss)
+        user.DateNaiss=req.body.DateNaiss;
+        if(req.body.tlf)
+        user.tlf=req.body.tlf;
+        if(req.body.email)
+        user.email=req.body.email;
         if(req.body.hod)
         user.hod=req.body.hod;
         user.role=req.body.role;
@@ -271,9 +279,15 @@ router.post('/signup/student', (req, res, next) => {
         user.lastname = req.body.lastname;
       if(req.body.admin)
           user.admin=req.body.admin;
-
+      if(req.body.DateNaiss)
+        user.DateNaiss=req.body.DateNaiss;
+      if(req.body.tlf)
+        user.tlf=req.body.tlf;
+      if(req.body.email)
+        user.email=req.body.email;
       user.role=req.body.role;
-      
+     
+
       user.save((err, user) => {
         if (err) {
           res.statusCode = 500;

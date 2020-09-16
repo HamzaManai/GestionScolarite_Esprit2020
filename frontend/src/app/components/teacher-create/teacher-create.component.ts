@@ -38,9 +38,9 @@ export class TeacherCreateComponent implements OnInit {
       password: ['', [Validators.required]],
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
-      email : [''],
       DateNaiss : [''],
       tlf : [''],
+      email : [''],
       role: 2,
       hod: false,
       admin: false,
@@ -66,7 +66,7 @@ export class TeacherCreateComponent implements OnInit {
       this.apiService.Register(this.playerForm.value).subscribe(
         (res) => {
           console.log('Teacher successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/admin/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('teacherList'))
         }, (error) => {
           // this.router.navigateByUrl('/login')
           alert(error);

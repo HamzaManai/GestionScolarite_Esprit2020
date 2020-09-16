@@ -84,7 +84,7 @@ export class DepartmentCreateComponent implements OnInit {
   removeEmployee(id) {
     if(window.confirm('Are you sure?')) {
       this.apiService.deleteDept(id).subscribe((res) => {
-        this.router.navigateByUrl('/admin/main')
+        this.router.navigateByUrl('/deptCreate')
        },
        err => {
          console.error(err)

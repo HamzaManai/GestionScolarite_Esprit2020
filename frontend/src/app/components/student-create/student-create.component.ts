@@ -20,7 +20,7 @@ export class StudentCreateComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private apiService: ApiService
-  ) { 
+  ) {
     this.mainForm();
     this.readDept();
   }
@@ -30,13 +30,13 @@ export class StudentCreateComponent implements OnInit {
   readDept(){
     this.apiService.getDept().subscribe((data) => {
      this.Dept = data;
-    })    
+    })
   }
 
   getCourses(){
     this.apiService.getCourses().subscribe((data) => {
       this.courses = data;
-     })    
+     })
   }
 
   mainForm() {
@@ -45,13 +45,16 @@ export class StudentCreateComponent implements OnInit {
       password: ['', [Validators.required]],
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
+      DateNaiss : [''],
+      tlf : [''],
+      email : [''],
       role: 1,
       hod: false,
       admin: false
-     
+
     })
   }
- 
+
 
   // Getter to access form control
   get myForm(){
@@ -59,11 +62,11 @@ export class StudentCreateComponent implements OnInit {
   }
 
   onSubmit() {
-   
+
     this.submitted = true;
-  
-     
-    
+
+
+
     if (!this.playerForm.valid) {
       return false;
     } else {

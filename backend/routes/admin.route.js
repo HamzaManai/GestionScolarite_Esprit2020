@@ -2,13 +2,6 @@ const express = require('express');
 const app = express();
 const adminRoute = express.Router();
 const adminController = require('../controllers/admin.controller');
-const { model } = require("../models/user");
-
-// Employee model
-let User = require('../models/user');
-let Teacher = require('../models/teacher');
-let Department = require('../models/department');
-let Clas = require('../models/class');
 
 
 // adminRoute.post("/class/create",adminController.createClass);
@@ -41,16 +34,16 @@ adminRoute.get ("/dept/read/:id",function(req, res){
     
 
 
-// Update employee
+// Update Dept
 //adminRoute.put('/dept/update/:id',adminController.updEmpl) ; 
-adminRoute.put ("/dept/update/:id",function(req, res){
+adminRoute.put( '/dept/update/:id',function(req, res,next){
     adminController.updEmpl
     });
     
 
-// Delete employee
+// Delete DEpt
 //adminRoute.delete('/dept/delete/:id',adminController.deltEmpl);
-adminRoute.delete ("/dept/delete/:id",function(req, res){
+adminRoute.delete ("/dept/delete/:id",function(req, res,next){
     adminController.deltEmpl
     });
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../service/api.service';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -22,11 +22,11 @@ export class DepartmentEditComponent implements OnInit {
 
   ngOnInit() {
     this.updateDept();
-    let id = this.actRoute.snapshot.paramMap.get('id');
+    const id = this.actRoute.snapshot.paramMap.get('id');
     this.getEmployee(id);
     this.editForm = this.fb.group({
       name: ['', [Validators.required]]
-    })
+    });
   }
 
   // Getter to access form control
@@ -37,16 +37,16 @@ export class DepartmentEditComponent implements OnInit {
   getEmployee(id) {
     this.apiService.getDeptt(id).subscribe(data => {
       this.editForm.setValue({
-        name: data['name']
+        name: data.name
       });
-     
+
     });
   }
 
   updateDept() {
     this.editForm = this.fb.group({
       name: ['', [Validators.required]]
-    })
+    });
   }
 
   onSubmit() {
@@ -55,14 +55,14 @@ export class DepartmentEditComponent implements OnInit {
       return false;
     } else {
       if (window.confirm('Are you sure?')) {
-        let id = this.actRoute.snapshot.paramMap.get('id');
+        const id = this.actRoute.snapshot.paramMap.get('id');
         this.apiService.updateDept(id, this.editForm.value)
           .subscribe(res => {
             this.router.navigateByUrl('/deptCreate');
-            console.log('Content updated successfully!')
+            console.log('Content updated successfully!');
           }, (error) => {
-            console.log(error)
-          })
+            console.log(error);
+          });
       }
     }
   }
