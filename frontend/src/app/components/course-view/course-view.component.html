@@ -27,14 +27,14 @@
           <hr>
         </div>
       </div>
-      <p *ngIf="Teachers.length <= 0" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">There are no courses added yet!</p>
+      <p *ngIf="Teachers.length <= 0" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">Il n'y a pas encore de module ajoutés!</p>
   
       <!-- Employee list -->
       <table class="table table-bordered" *ngIf="Teachers.length > 0">
         <thead class="table-primary">
           <tr>
-            <th scope="col">Course Name</th>
-            <th scope="col">Credit Hours</th>
+            <th scope="col">Nom de module</th>
+            <th scope="col">Durée module</th>
           </tr>
         </thead>
         <tbody>
