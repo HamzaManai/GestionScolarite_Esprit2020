@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
       <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
       <a class="navbar-brand border border-secondary p-2 ml-lg-5">
-        <span id="logo">School Portal</span>
+        <span id="logo">Esprit</span>
       </a>
   
       <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -22,45 +22,45 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="form-horizontal">
-          <h5 class="text-center">Admin Registration</h5><hr>
+          <h5 class="text-center">Inscription d'admin</h5><hr>
           <form  [formGroup]="playerForm" class="create-form" (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="inputName">Username</label>
+              <label for="inputName">Nom d'utilisateur</label>
               <input class="form-control" type="text" formControlName="username">
               <!-- error -->
               <div class="invalid-feedback" *ngIf="submitted && myForm.username.errors?.required">
-               Username is required.
+               Le nom d'utilisateur est obligatoire!
               </div>
             </div>
     
             <div class="form-group">
-              <label for="inputEmail3">Password</label>
+              <label for="inputEmail3">Mot de passe</label>
               <input class="form-control" type="password" formControlName="password">
               <div class="invalid-feedback" *ngIf="submitted && myForm.password.errors?.required">
-                  Password is required.
+                  La mot de passe est obligatorie!
                  </div>
             </div>
     
             <div class="form-group">
-              <label for="inputName">First Name</label>
+              <label for="inputName">Prénom</label>
               <input class="form-control" type="text" formControlName="firstname">
               <!-- error -->
               <div class="invalid-feedback" *ngIf="submitted && myForm.firstname.errors?.required">
-               First Name is required.
+               Prénom est obligatoire!
               </div>
             </div>
     
             <div class="form-group">
-              <label for="inputVerify3">Last Name</label>
+              <label for="inputVerify3">Nom</label>
               <input class="form-control" type="text" formControlName="lastname">
               <!-- error -->
               <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
-                 Last Name is required.
+                 Nom est obligatoire!
                 </div>
               </div>
   
             <div class="form-group">
-              <button type="submit" id="signup-btn" class="btn btn-lg btn-primary btn-block">Register</button>
+              <button type="submit" id="signup-btn" class="btn btn-lg btn-primary btn-block">S'incrire</button>
             </div>
   
           </form>
