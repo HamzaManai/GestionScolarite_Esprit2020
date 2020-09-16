@@ -65,9 +65,28 @@
                 <input class="form-control" type="date" formControlName="DateNaiss">
                 <!-- error -->
                 <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
-                   votre email est obligatoire!
+                   votre Date est obligatoire!
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label for="inputDate">Num Telephone</label>
+                  <input class="form-control" type="number" formControlName="tlf">
+                  <!-- error -->
+                  <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
+                     votre Telephone est obligatoire!
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="inputDate">Email</label>
+                    <input class="form-control" type="email" formControlName="email">
+                    <!-- error -->
+                    <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
+                       votre Date est obligatoire!
+                      </div>
+                    </div>
 
             <div class="form-group">
               <label for="inputPassword3">Departement</label>
