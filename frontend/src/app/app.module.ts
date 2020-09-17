@@ -50,6 +50,14 @@ import { TeacherClassViewComponent } from './components/teacher-class-view/teach
 import { StudentProfileComponent } from './components/student-profile/student-profile.component';
 import { StudentComplainComponent } from './components/student-complain/student-complain.component';
 import { HodComplainViewComponent } from './components/hod-complain-view/hod-complain-view.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import { StudentEditComponent } from './components/student-edit/student-edit.component';
+import { AgentScolariteCreateComponent } from './components/agent-scolarite-create/agent-scolarite-create.component';
+import { AgentScolariteEditComponent } from './components/agent-scolarite-edit/agent-scolarite-edit.component';
+import { AgentExamCreateComponent } from './components/agent-exam-create/agent-exam-create.component';
+import { AgentExamListComponent } from './components/agent-exam-list/agent-exam-list.component';
+import { AgentExamEditComponent } from './components/agent-exam-edit/agent-exam-edit.component';
+import { AgentScolariteListComponent } from './components/agent-scolarite-list/agent-scolarite-list.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -85,7 +93,15 @@ export function tokenGetter() {
     StudentProfileComponent,
     StudentComplainComponent,
     HodComplainViewComponent,
-
+    StudentListComponent,
+    StudentEditComponent,
+    AgentScolariteCreateComponent,
+    AgentScolariteEditComponent,
+    AgentExamCreateComponent,
+    AgentExamListComponent,
+    AgentExamEditComponent,
+    AgentScolariteListComponent,
+    
 
 
   ],

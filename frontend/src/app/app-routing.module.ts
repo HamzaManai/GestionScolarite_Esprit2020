@@ -19,7 +19,6 @@ import { CourseViewComponent } from './components/course-view/course-view.compon
 import { DepartmentEditComponent } from './components/department-edit/department-edit.component';
 import { CourseEditComponent } from './components/course-edit/course-edit.component';
 import { StudentCreateComponent } from './components/student-create/student-create.component';
-
 import { ClassCreateComponent } from './components/class-create/class-create.component';
 
 import { ClassEnrollComponent } from './components/class-enroll/class-enroll.component';
@@ -34,6 +33,11 @@ import { StudentComplainComponent } from './components/student-complain/student-
 import { HodComplainViewComponent } from './components/hod-complain-view/hod-complain-view.component';
 
 import {HomepageComponent} from './components/homepage/homepage.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import { AgentScolariteListComponent } from './components/agent-scolarite-list/agent-scolarite-list.component';
+import { AgentScolariteCreateComponent } from './components/agent-scolarite-create/agent-scolarite-create.component';
+import { AgentExamCreateComponent } from './components/agent-exam-create/agent-exam-create.component';
+import { AgentExamListComponent } from './components/agent-exam-list/agent-exam-list.component';
 
 const routes: Routes = [
 
@@ -64,18 +68,17 @@ const routes: Routes = [
   { path: 'student/class/:id', component: StudentClassComponent,canActivate: [AuthGuard]},
   { path: 'student/profile', component: StudentProfileComponent,canActivate: [AuthGuard]},
   { path: 'student/complain', component: StudentComplainComponent,canActivate: [AuthGuard]},
-  
+  {path:  'studentList', component:StudentListComponent,canActivate: [AuthGuard]},
   { path: 'hod/complain/view', component: HodComplainViewComponent,canActivate: [AuthGuard]},
-
-  
-
   { path: 'teacher/class', component: ClassEnrollTeacherComponent,canActivate: [AuthGuard]},
   { path: 'teacher/class/:id', component: ClassEnrollTeacherComponent,canActivate: [AuthGuard]},
+  {path:  'agentScolariteCreate', component:AgentScolariteCreateComponent,canActivate: [AuthGuard]},
+  {path: 'agentScolariteList' , component:AgentScolariteListComponent,canActivate: [AuthGuard]},
+  {path:  'agentExamCreate', component:AgentExamCreateComponent,canActivate: [AuthGuard]},
+  {path: 'agentExamList' , component:AgentExamListComponent,canActivate: [AuthGuard]},
 
   { path: 'teacher/view/class', component: TeacherClassViewComponent,canActivate: [AuthGuard]},
   { path: 'teacher/view/class:id', component: TeacherClassViewComponent,canActivate: [AuthGuard]},
-
-
   { path: 'login', component: LoginAdminComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];

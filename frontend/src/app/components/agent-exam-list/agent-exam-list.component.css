@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+body {
+    font-family: 'Barlow';
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 50px;
+	color: #007bac;
+}
+
+h3 {
+	font-weight: bold;
+	color: #007bac;
+}
+
+
+h2 {
+    margin-top: 40px;
+	font-family: 'Dosis', sans-serif !important;
+	color: #007bac;
+	text-align: center;
+}
+
+.btn {
+    margin-bottom: 40px;
+}
+
+#logo{
+    font-size: 2vw;
+  }
+  @media screen and (max-width: 600px ) {
+    #logo{
+      font-size: 4vw;
+    }
+    .nav-link:hover{
+      border:none;
+      color: green;
+    }
+    .navbar-collapse{
+      background: white;
+    }
+  }
+  
+  
+  th {
+    color: #007bac;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  td {
+    color: #007bac;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 50px;
+  }  
+  
+  
