@@ -35,6 +35,7 @@ mongoose.connect(dbConfig.db, {
 var usersRouter = require('../backend/routes/users');
 var adminRouter = require('../backend/routes/admin.route');
 var clasRouter = require('../backend/routes/clas.route');
+var courseRouter = require('../backend/routes/course');
 
 
 
@@ -62,6 +63,7 @@ app.use('/', express.static(path.join(__dirname, 'dist/frontend')));
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/class', clasRouter);
+app.use('/course', courseRouter);
 
 
 // Create port

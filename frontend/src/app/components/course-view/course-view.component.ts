@@ -10,7 +10,7 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./course-view.component.css']
 })
 export class CourseViewComponent implements OnInit {
-  
+
   submitted = false;
   playerForm: FormGroup;
   Teachers:any = [];
@@ -23,7 +23,7 @@ export class CourseViewComponent implements OnInit {
     private ngZone: NgZone,
     private actRoute: ActivatedRoute,
     private apiService: ApiService
-  ) { 
+  ) {
     this.readCourse();
   }
 
@@ -40,6 +40,7 @@ export class CourseViewComponent implements OnInit {
     )
     this.apiService.getCourses().subscribe((data) => {
      this.Course = data;
+
      for (let i = 0; i < this.Course.length; i++)
      {
       if (this.Course[i].teacher._id == this.currentUser)
@@ -47,6 +48,6 @@ export class CourseViewComponent implements OnInit {
         this.Teachers.push(this.Course[i]);
       }
      }
-     })     
+     })
   }
 }

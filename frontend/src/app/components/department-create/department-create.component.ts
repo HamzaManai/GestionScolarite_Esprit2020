@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { userData, ApiService } from './../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ResourceLoader } from '@angular/compiler';
 
 @Component({
   selector: 'app-department-create',
@@ -71,8 +72,9 @@ export class DepartmentCreateComponent implements OnInit {
 
       this.apiService.deptRegister(this.playerForm.value).subscribe(
         (res) => {
+
           console.log('Department successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/admin/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('/deptCreate'))
         }, (error) => {
           alert(error);
           console.log(error);
@@ -84,10 +86,13 @@ export class DepartmentCreateComponent implements OnInit {
   removeEmployee(id) {
     if(window.confirm('Are you sure?')) {
       this.apiService.deleteDept(id).subscribe((res) => {
+       // this.ngZone.run(() => this.router.navigateByUrl('dept/Create'))
+
         this.router.navigateByUrl('/deptCreate')
+
        },
        err => {
-         console.error(err)
+         console.error(err);
        })
     }
   }

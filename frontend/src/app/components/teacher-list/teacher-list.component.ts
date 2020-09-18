@@ -13,7 +13,7 @@ export class TeacherListComponent implements OnInit {
   Teachers:any = [];
   Dept:any = [];
 
-  constructor(private apiService: ApiService, private router: Router) { 
+  constructor(private apiService: ApiService, private router: Router) {
     this.readEmployee();
     this.readDept();
   }
@@ -30,23 +30,23 @@ export class TeacherListComponent implements OnInit {
        this.Teachers.push(this.Employee[i]);
      }
     }
-    })    
+    })
   }
 
   readDept(){
     this.apiService.getDept().subscribe((data) => {
      this.Dept = data;
-    })    
+    })
   }
 
   removeEmployee(id) {
     if(window.confirm('Are you sure?')) {
       this.apiService.deleteEmployee(id).subscribe((res) => {
-        this.router.navigateByUrl('/admin/main')
+        this.router.navigateByUrl('/teacherList')
        },
        err => {
          console.error(err)
-       })  
+       })
     }
   }
 

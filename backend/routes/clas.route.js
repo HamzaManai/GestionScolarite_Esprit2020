@@ -130,6 +130,8 @@ User.findById(req.user._id)
 });
  
 })
+
+
 router.route('/get/studs/:id').get((req, res, next) => {
 
   Clas.findById(req.params.id)
@@ -288,6 +290,5 @@ router.route('/allComplaints').get((req, res, next) => {
       }
     })
   })
-
 
   module.exports = router;

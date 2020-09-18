@@ -1,4 +1,3 @@
-
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
@@ -12,7 +11,6 @@ var User = new Schema({
         type: String,
           default: ''
       },
-      
       DateNaiss : {
         type: Date,
         default: ''
@@ -44,7 +42,7 @@ var User = new Schema({
       type: Schema.Types.ObjectId,
       ref: "department"
   },
-  Teachcourses: [{
+    Teachcourses: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "course"
 }],

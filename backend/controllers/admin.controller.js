@@ -86,11 +86,14 @@ model.exports={
       })
     }
     ,
-    deltEmpl : (req, res,next) => {
+    deltEmpl : (req, res) => {
+      console.log("azazazadqdqdq");
+        console.log(req.params.id,"azazazaz");
         Department.find({_id:req.params.id}).deleteOne(( err,data)=>
         {
-          console.log("Department Removed")
-          return res.json(data)
+          console.log("Department Removed");
+          return res.json(data);
+          
         })
       }
       ,

@@ -34,13 +34,28 @@
                 Department Name is required.
               </div>
             </div>
-  
+
+            <div class="form-group">
+              <label for="inputPassword3">Enseignant</label>
+              <select class="custom-select form-control"
+                formControlName="teacher">
+                <option value="">Choisir un Enseignant</option>
+                <option *ngFor="let teach of Teachers" value="{{teach._id}}">{{teach.firstname}} {{teach.lastname}}
+                </option>
+              </select>
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.teacher.errors?.required">
+                Choisir un Enseignant
+              </div>
+            </div>
+
+
             <div class="form-group">
               <button type="submit" id="signup-btn" class="btn btn-lg btn-primary btn-block">Modifier</button>
             </div>
-  
+
           </form>
-  
+
         </div>
       </div>
     </div>

@@ -12,20 +12,27 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class DepartmentEditComponent implements OnInit {
   submitted = false;
   editForm: FormGroup;
+  Dept:any = [];
+  Employee:any = [];
+  Teachers:any = [];
+  HOD:any = [];
 
   constructor(
     public fb: FormBuilder,
     private actRoute: ActivatedRoute,
-    private apiService: ApiService,
+    private apiService: ApiService ,
     private router: Router
-  ) {}
+  ) {
+    this.readEmployee();
+  }
 
   ngOnInit() {
     this.updateDept();
     const id = this.actRoute.snapshot.paramMap.get('id');
     this.getEmployee(id);
     this.editForm = this.fb.group({
-      name: ['', [Validators.required]]
+      name: ['', [Validators.required]],
+      teacher : ['']
     });
   }
 
@@ -43,9 +50,24 @@ export class DepartmentEditComponent implements OnInit {
     });
   }
 
+  readEmployee(){
+    this.apiService.getTeachers().subscribe((data) => {
+     this.Employee = data;
+     for (let i = 0; i < this.Employee.length; i++)
+    {
+     if (this.Employee[i].role == 2 && this.Employee[i].hod == false)
+     {
+       this.Teachers.push(this.Employee[i]);
+     }
+    }
+    })
+  }
+
+
   updateDept() {
     this.editForm = this.fb.group({
-      name: ['', [Validators.required]]
+      name: ['', [Validators.required]],
+      teacher : ['']
     });
   }
 
@@ -55,7 +77,8 @@ export class DepartmentEditComponent implements OnInit {
       return false;
     } else {
       if (window.confirm('Are you sure?')) {
-        const id = this.actRoute.snapshot.paramMap.get('id');
+       let id = this.actRoute.snapshot.paramMap.get('id');
+     //  id = this.readEmployee();
         this.apiService.updateDept(id, this.editForm.value)
           .subscribe(res => {
             this.router.navigateByUrl('/deptCreate');
