@@ -38,13 +38,13 @@ export class StudentCreateComponent implements OnInit {
       password: ['', [Validators.required]],
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
-      DateNaiss : [''],
-      tlf : [''],
-      email : [''],
+      DateNaiss : ['', [Validators.required]],
+      tlf : ['', [Validators.required]],
+      email : ['', [Validators.required]],
       role: 1,
       hod: false,
       admin: false,
-      dept: ['']
+      dept: ['',Validators.required]
     })
   }
 
@@ -65,7 +65,6 @@ export class StudentCreateComponent implements OnInit {
     } else {
       this.apiService.Register(this.playerForm.value).subscribe(
         (res) => {
-          console.log('Etudiant ajouté!')
           this.ngZone.run(() => this.router.navigateByUrl('studentList'))
         }, (error) => {
           // this.router.navigateByUrl('/login')

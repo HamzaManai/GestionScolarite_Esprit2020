@@ -1,6 +1,8 @@
 import { Router } from '@angular/router';
 import { userData, ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-agent-exam-list',
@@ -12,7 +14,7 @@ export class AgentExamListComponent implements OnInit {
   Agentx:any = [];
 
 
-  constructor(private apiService: ApiService, private router: Router) { 
+  constructor(private apiService: ApiService, private router: Router ,private toastService:ToastrService) { 
     this.readEmployee();
   }
 
@@ -26,15 +28,16 @@ export class AgentExamListComponent implements OnInit {
   }
 
   
-  removeEmployee(id) {
-    if(window.confirm('Are you sure?')) {
-      this.apiService.deleteEmployee(id).subscribe((res) => {
-        this.router.navigateByUrl('/admin/main')
+  removeEmployee(id,index) {
+    if(window.confirm('Vous étre sûre?')) {
+      this.apiService.delete(id).subscribe((res) => {
+        this.Agentx.splice(index,1)
+        this.toastService.success("Agent de service examen supprimé!")
        },
        err => {
+         this.toastService.error("Error")
          console.error(err)
        })  
     }
   }
-
 }

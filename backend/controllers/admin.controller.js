@@ -8,7 +8,7 @@ let Department = require('../models/department');
 let Clas = require('../models/class');
 
 
-
+/*
 model.exports={
     createClass : (req, res, next) => {
   
@@ -167,3 +167,4 @@ model.exports={
 
 }
 
+*/

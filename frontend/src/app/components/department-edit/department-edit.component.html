@@ -38,7 +38,7 @@
             <div class="form-group">
               <label for="inputPassword3">Chef de département</label>
               <select class="custom-select form-control"
-                formControlName="dept">
+                formControlName="teacher">
                 <option value="">Choisir Enseignant</option>
                 <option *ngFor="let teacher of Teachers" value="{{teacher._id}}">{{teacher.name}}
                 </option>

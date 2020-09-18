@@ -9,6 +9,9 @@ var course = new Schema({
     hourly_load: {
         type: Number
     },
+    current_Progress:{ 
+        type: Number
+    },
     state: {
         type: Boolean,
         default:false

@@ -22,28 +22,28 @@ export class DepartmentEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.updateDept();
     const id = this.actRoute.snapshot.paramMap.get('id');
     this.getEmployee(id);
+    this.readEmployee();
+    
     this.editForm = this.fb.group({
-      name: ['', [Validators.required]]
-      
-      
+      name: ['', [Validators.required]],
+      teacher: ['',Validators.required]
     });
   }
 
-  readEmployee(){
-    this.apiService.getTeachers().subscribe((data) => {
-      console.log()
-     this.Teachers = data;
-    })    
-  }
+  
 
   // Getter to access form control
   get myForm() {
     return this.editForm.controls;
   }
-
+  readEmployee(){
+    this.apiService.getUsersByRole(2).subscribe((data) => {
+     this.Teachers = data;
+     console.log
+    })    
+  }
   getEmployee(id) {
     this.apiService.getDeptt(id).subscribe(data => {
       this.editForm.setValue({
@@ -53,11 +53,6 @@ export class DepartmentEditComponent implements OnInit {
     });
   }
 
-  updateDept() {
-    this.editForm = this.fb.group({
-      name: ['', [Validators.required]]
-    });
-  }
 
   onSubmit() {
     this.submitted = true;

@@ -81,6 +81,7 @@ const routes: Routes = [
   {path: 'StudentEdit/:id' , component:StudentEditComponent,canActivate: [AuthGuard]},
 
 
+
   {path:  'agentExamCreate', component:AgentExamCreateComponent,canActivate: [AuthGuard]},
   {path: 'agentExamList' , component:AgentExamListComponent,canActivate: [AuthGuard]},
   {path: 'agentExamEdit/:id' , component:AgentExamEditComponent,canActivate: [AuthGuard]},

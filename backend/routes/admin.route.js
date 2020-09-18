@@ -195,7 +195,7 @@ adminRoute.route('/dept/delete/:id').delete((req, res, next) => {
 })
 
 
-
+//Create teacher
 adminRoute.route('/teacher/create').post((req, res, next) => {
     User.create(req.body, (error, data) => {
     if (error) {
@@ -245,13 +245,17 @@ adminRoute.route('/teacher/update/:id').put((req, res, next) => {
 })
 
 // Delete employee
-adminRoute.route('/teacher/delete/:id').delete( async (req, res, next) => {
-    console.log(req.params.id)
-   const deletedItem = await User.findOneAndDelete(req.params.id).catch(err => next(err))
-
-  res.status(200).send("deletedItem")
-
-})
+adminRoute.route('/delete/:id').delete((req, res, next) => {
+    User.deleteOne({_id:req.params.id}, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.status(200).json({
+          msg: data
+        })
+      }
+    })
+  })
 
 adminRoute.route('/class/create').post((req, res, next) => {
   Teacher.create(req.body, (error, data) => {

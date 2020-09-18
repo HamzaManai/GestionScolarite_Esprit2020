@@ -22,8 +22,9 @@ export class TeacherListComponent implements OnInit {
   ngOnInit() {}
 
   readEmployee(){
-    this.apiService.getTeachers().subscribe((data) => {
+    this.apiService.getUsersByRole(2).subscribe((data) => {
      this.Teachers = data;
+     console.log
     })    
   }
 
@@ -35,7 +36,7 @@ export class TeacherListComponent implements OnInit {
 
   removeEmployee(id,index) {
     if(window.confirm('Vous étre sûre?')) {
-      this.apiService.deleteEmployee(id).subscribe((res) => {
+      this.apiService.delete(id).subscribe((res) => {
         this.Teachers.splice(index,1)
         this.toastService.success("Enseignant supprimé!")
        },

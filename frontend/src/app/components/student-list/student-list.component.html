@@ -1,5 +1,6 @@
+
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
+  <<nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
     <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
     <a class="navbar-brand border border-secondary p-2 ml-lg-5">
       <span id="logo">ESPRIT</span>
@@ -17,7 +18,7 @@
           <a class="nav-link" style="float:left; margin-top: 10px; margin-right: 30px; font-size: 20px;" routerLink="/admin/main">Dashboard</a>          </li>
       </div>
     </div>
-  </nav>  
+  </nav> > 
 </div>
 <div class="container">
   <div class="jumbotron mt-5">
@@ -44,7 +45,7 @@
         <tr *ngFor="let student of Students; let i = index">
           <td>{{student.firstname}}</td>
           <td>{{student.lastname}}</td>
-          <td>{{student.deptname}}</td>
+          <td>{{student.dept.name}}</td>
           <td>{{student.DateNaiss}}</td>
           <td>{{student.tlf}}</td>
           <td>{{student.email}}</td>
@@ -53,7 +54,7 @@
               <span class="edit" [routerLink]="['/StudentEdit/', student._id]">
                 <button type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Modifier</button>
               </span>
-              <span class="delete" (click)="removeEmployee(student._id)">
+              <span class="delete" (click)="removeEmployee(student._id,i)">
                 <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
               </span>
             </td>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { userData, ApiService } from './../../service/api.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-student-list',
@@ -13,7 +14,7 @@ export class StudentListComponent implements OnInit {
   Students:any = [];
   Dept:any = [];
 
-  constructor(private apiService: ApiService, private router: Router) { 
+  constructor(private apiService: ApiService, private router: Router ,private toastService:ToastrService) { 
     this.readEmployee();
     this.readDept();
   }
@@ -33,15 +34,22 @@ export class StudentListComponent implements OnInit {
     })    
   }
 
-  removeEmployee(id) {
-    if(window.confirm('Are you sure?')) {
-      this.apiService.deleteEmployee(id).subscribe((res) => {
-        this.router.navigateByUrl('/admin/main')
+  removeEmployee(id,index) {
+    if(window.confirm('Vous étre sûre?')) {
+      this.apiService.delete(id).subscribe((res) => {
+        this.Students.splice(index,1)
+        this.toastService.success("Etudiant supprimé!")
        },
        err => {
+         this.toastService.error("Error")
          console.error(err)
        })  
     }
   }
-
+  logout() {
+    let removeToken = localStorage.removeItem('access_token');
+    if (removeToken == null) {
+      this.router.navigate(['log-in']);
+    }
+  }
 }
