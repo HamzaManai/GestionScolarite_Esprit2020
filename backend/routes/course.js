@@ -2,4 +2,4 @@
 const courseCtrl = require('../controllers/course');
 
 /*Update Pack*/
-router.put('/update/:id', auth , courseCtrl.updateCourse);
+router.put('/update/:id' , courseCtrl.updateCourse);
