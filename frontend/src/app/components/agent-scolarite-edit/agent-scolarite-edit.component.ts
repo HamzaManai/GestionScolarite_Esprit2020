@@ -13,7 +13,7 @@ export class AgentScolariteEditComponent implements OnInit {
 
   submitted = false;
   editForm: FormGroup;
-  AgentScolariteData: Employee[];
+  agentData: Employee[];
 
   constructor(
     public fb: FormBuilder,
@@ -28,10 +28,10 @@ export class AgentScolariteEditComponent implements OnInit {
     this.getEmployee(id);
     this.editForm = this.fb.group({
       firstname: ['', [Validators.required]],
-        lastname: ['', [Validators.required]],
-        DateNaiss: ['', [Validators.required]],
-        tlf: ['', [Validators.required]],
-        email: ['', [Validators.required]]
+      lastname: ['', [Validators.required]],
+      dateNaiss: ['', [Validators.required]],
+      tlf: ['', [Validators.required]],
+      email: ['', [Validators.required]],
     })
   }
 
@@ -45,7 +45,7 @@ export class AgentScolariteEditComponent implements OnInit {
       this.editForm.setValue({
         firstname: data['firstname'],
         lastname: data['lastname'],
-        DateNaiss: data['DateNaiss'],
+        dateNaiss: data['DateNaiss'],
         tlf: data['tlf'],
         email: data['email']
       });
@@ -57,9 +57,10 @@ export class AgentScolariteEditComponent implements OnInit {
     this.editForm = this.fb.group({
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
-      DateNaiss: ['', [Validators.required]],
+      dateNaiss: ['', [Validators.required]],
       tlf: ['', [Validators.required]],
-      email: ['', [Validators.required]]
+      email: ['', [Validators.required]],
+
     })
   }
 

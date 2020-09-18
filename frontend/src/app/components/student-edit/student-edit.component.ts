@@ -73,7 +73,7 @@ onSubmit() {
       let id = this.actRoute.snapshot.paramMap.get('id');
       this.apiService.updateEmployee(id, this.editForm.value)
         .subscribe(res => {
-          this.router.navigateByUrl('/teacherList');
+          this.router.navigateByUrl('/studentList');
           console.log('Content updated successfully!')
         }, (error) => {
           console.log(error)

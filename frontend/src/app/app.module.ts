@@ -59,6 +59,14 @@ import { AgentExamListComponent } from './components/agent-exam-list/agent-exam-
 import { AgentExamEditComponent } from './components/agent-exam-edit/agent-exam-edit.component';
 import { AgentScolariteListComponent } from './components/agent-scolarite-list/agent-scolarite-list.component';
 
+
+ 
+import { ToastrModule } from 'ngx-toastr';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CourseAgentScolariteComponent } from './components/course-agent-scolarite/course-agent-scolarite.component';
+import { CourseAgentExamComponent } from './components/course-agent-exam/course-agent-exam.component';
+
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -101,6 +109,9 @@ export function tokenGetter() {
     AgentExamListComponent,
     AgentExamEditComponent,
     AgentScolariteListComponent,
+    SidebarComponent,
+    CourseAgentScolariteComponent,
+    CourseAgentExamComponent,
     
 
 
@@ -113,7 +124,7 @@ export function tokenGetter() {
     HttpClientModule,
     MatCheckboxModule,
     NgSelectModule,
-
+    ToastrModule.forRoot(),
 
 
 

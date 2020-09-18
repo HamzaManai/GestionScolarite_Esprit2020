@@ -47,8 +47,8 @@ router.route('/getDept').get((req, res) => {
 
 
 
-router.route('/getTeachers').get((req, res) => {
-  User.find({role:2})
+router.route('/getUsersByRole/:role').get((req, res) => {
+  User.find({role:req.params.role})
    .populate('dept').exec(function (err, results) {
     if (err) {
       err = new Error('User ' + req.params.id + ' not found');
@@ -62,6 +62,8 @@ router.route('/getTeachers').get((req, res) => {
     }
   });
 })
+
+
 
 router.route('/getAdmins').get((req, res) => {
   User.find({role:0})

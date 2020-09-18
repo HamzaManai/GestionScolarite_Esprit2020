@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { userData, ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgentScolariteListComponent implements OnInit {
 
-  constructor() { }
+  Employee:any = [];
+  Agents:any = [];
+  Dept:any = [];
 
-  ngOnInit(): void {
+  constructor(private apiService: ApiService, private router: Router) { 
+    this.readEmployee();
+  }
+
+  ngOnInit() {}
+
+  readEmployee(){
+    this.apiService.getUsersByRole(4).subscribe((data) => {
+     this.Agents = data;
+     
+
+    })  
+  }
+
+
+
+  removeEmployee(id) {
+    if(window.confirm('Are you sure?')) {
+      this.apiService.deleteEmployee(id).subscribe((res) => {
+        this.router.navigateByUrl('/admin/main')
+       },
+       err => {
+         console.error(err)
+       })  
+    }
   }
 
 }

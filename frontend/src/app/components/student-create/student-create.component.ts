@@ -13,7 +13,6 @@ export class StudentCreateComponent implements OnInit {
   submitted = false;
   playerForm: FormGroup;
   Dept:any = [];
-  courses:any = [];
 
   constructor(
     public fb: FormBuilder,
@@ -33,12 +32,6 @@ export class StudentCreateComponent implements OnInit {
     })
   }
 
-  getCourses(){
-    this.apiService.getCourses().subscribe((data) => {
-      this.courses = data;
-     })
-  }
-
   mainForm() {
     this.playerForm = this.fb.group({
       username: ['', [Validators.required]],
@@ -50,8 +43,8 @@ export class StudentCreateComponent implements OnInit {
       email : [''],
       role: 1,
       hod: false,
-      admin: false
-
+      admin: false,
+      dept: ['']
     })
   }
 
@@ -70,10 +63,10 @@ export class StudentCreateComponent implements OnInit {
     if (!this.playerForm.valid) {
       return false;
     } else {
-      this.apiService.RegisterStudent(this.playerForm.value).subscribe(
+      this.apiService.Register(this.playerForm.value).subscribe(
         (res) => {
-          console.log('Student successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/admin/main'))
+          console.log('Etudiant ajouté!')
+          this.ngZone.run(() => this.router.navigateByUrl('studentList'))
         }, (error) => {
           // this.router.navigateByUrl('/login')
           alert(error);

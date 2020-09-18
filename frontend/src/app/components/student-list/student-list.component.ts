@@ -9,26 +9,23 @@ import { Router } from '@angular/router';
 })
 export class StudentListComponent implements OnInit {
 
-  Employee:any =[];
+  Employee:any = [];
   Students:any = [];
   Dept:any = [];
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) { 
+    this.readEmployee();
+    this.readDept();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   readEmployee(){
-    this.apiService.getTeachers().subscribe((data) => {
-     this.Employee = data;
-     for (let i = 0; i < this.Employee.length; i++)
-    {
-     if (this.Employee[i].role == 1)
-     {
-       this.Students.push(this.Employee[i]);
-     }
-    }
-    })    
+    this.apiService.getUsersByRole(1).subscribe((data) => {
+     this.Students = data;
+        })  
   }
+  
 
   readDept(){
     this.apiService.getDept().subscribe((data) => {
@@ -46,4 +43,5 @@ export class StudentListComponent implements OnInit {
        })  
     }
   }
+
 }

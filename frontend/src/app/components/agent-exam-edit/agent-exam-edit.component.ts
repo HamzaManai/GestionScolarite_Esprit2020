@@ -4,16 +4,16 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ApiService } from './../../service/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
-
 @Component({
   selector: 'app-agent-exam-edit',
   templateUrl: './agent-exam-edit.component.html',
   styleUrls: ['./agent-exam-edit.component.css']
 })
 export class AgentExamEditComponent implements OnInit {
+
   submitted = false;
   editForm: FormGroup;
-  agentExamData: Employee[];
+  agentData: Employee[];
 
   constructor(
     public fb: FormBuilder,
@@ -28,7 +28,10 @@ export class AgentExamEditComponent implements OnInit {
     this.getEmployee(id);
     this.editForm = this.fb.group({
       firstname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]]
+      lastname: ['', [Validators.required]],
+      dateNaiss: ['', [Validators.required]],
+      tlf: ['', [Validators.required]],
+      email: ['', [Validators.required]],
     })
   }
 
@@ -41,7 +44,10 @@ export class AgentExamEditComponent implements OnInit {
     this.apiService.getEmployee(id).subscribe(data => {
       this.editForm.setValue({
         firstname: data['firstname'],
-        lastname: data['lastname']
+        lastname: data['lastname'],
+        dateNaiss: data['DateNaiss'],
+        tlf: data['tlf'],
+        email: data['email']
       });
      
     });
@@ -50,7 +56,11 @@ export class AgentExamEditComponent implements OnInit {
   updateEmployee() {
     this.editForm = this.fb.group({
       firstname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]]
+      lastname: ['', [Validators.required]],
+      dateNaiss: ['', [Validators.required]],
+      tlf: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+
     })
   }
 
@@ -63,7 +73,7 @@ export class AgentExamEditComponent implements OnInit {
         let id = this.actRoute.snapshot.paramMap.get('id');
         this.apiService.updateEmployee(id, this.editForm.value)
           .subscribe(res => {
-            this.router.navigateByUrl('/teacherList');
+            this.router.navigateByUrl('/agentExamList');
             console.log('Content updated successfully!')
           }, (error) => {
             console.log(error)

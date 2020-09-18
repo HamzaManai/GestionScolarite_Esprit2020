@@ -54,7 +54,7 @@
                 <span class="edit" [routerLink]="['/teacherEdit/', teacher._id]">
                   <button type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Modifier</button>
                 </span>
-                <span class="delete" (click)="removeEmployee(teacher._id)">
+                <span class="delete" (click)="removeEmployee(teacher._id,i)">
                   <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
                 </span>
               </td>

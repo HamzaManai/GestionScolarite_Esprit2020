@@ -10,8 +10,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";;
 export class AgentExamCreateComponent implements OnInit {
   submitted = false;
   playerForm: FormGroup;
- 
-
+  Dept:any = [];
+  courses:any = [];
 
   constructor(
     public fb: FormBuilder,
@@ -20,13 +20,18 @@ export class AgentExamCreateComponent implements OnInit {
     private apiService: ApiService
   ) {
     this.mainForm();
-
+    this.readDept();
   }
 
   ngOnInit() { }
 
+  readDept(){
+    this.apiService.getDept().subscribe((data) => {
 
+    })
+  }
 
+ 
 
   mainForm() {
     this.playerForm = this.fb.group({
@@ -61,7 +66,7 @@ export class AgentExamCreateComponent implements OnInit {
     } else {
       this.apiService.RegisterStudent(this.playerForm.value).subscribe(
         (res) => {
-          console.log('Agent de service examen ajouté!')
+          console.log('Agent services examen ajouté!')
           this.ngZone.run(() => this.router.navigateByUrl('/admin/main'))
         }, (error) => {
           // this.router.navigateByUrl('/login')

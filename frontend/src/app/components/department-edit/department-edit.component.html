@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
       <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
       <a class="navbar-brand border border-secondary p-2 ml-lg-5">
-        <span id="logo">School Portal</span>
+        <span id="logo">ESPRIT</span>
       </a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -34,6 +34,22 @@
                 Department Name is required.
               </div>
             </div>
+
+            <div class="form-group">
+              <label for="inputPassword3">Chef de département</label>
+              <select class="custom-select form-control"
+                formControlName="dept">
+                <option value="">Choisir Enseignant</option>
+                <option *ngFor="let teacher of Teachers" value="{{teacher._id}}">{{teacher.name}}
+                </option>
+              </select>
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.dept.errors?.required">
+                Choisir un chef de Departement.
+              </div>
+            </div>
+            
+      
   
             <div class="form-group">
               <button type="submit" id="signup-btn" class="btn btn-lg btn-primary btn-block">Modifier</button>

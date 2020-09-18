@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class DepartmentEditComponent implements OnInit {
   submitted = false;
   editForm: FormGroup;
+  Teachers:any = [];
 
   constructor(
     public fb: FormBuilder,
@@ -26,7 +27,16 @@ export class DepartmentEditComponent implements OnInit {
     this.getEmployee(id);
     this.editForm = this.fb.group({
       name: ['', [Validators.required]]
+      
+      
     });
+  }
+
+  readEmployee(){
+    this.apiService.getTeachers().subscribe((data) => {
+      console.log()
+     this.Teachers = data;
+    })    
   }
 
   // Getter to access form control

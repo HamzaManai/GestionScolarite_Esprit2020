@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { userData, ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-teacher-list',
@@ -13,7 +14,7 @@ export class TeacherListComponent implements OnInit {
   Teachers:any = [];
   Dept:any = [];
 
-  constructor(private apiService: ApiService, private router: Router) { 
+  constructor(private apiService: ApiService, private router: Router,private toastService:ToastrService) { 
     this.readEmployee();
     this.readDept();
   }
@@ -22,14 +23,7 @@ export class TeacherListComponent implements OnInit {
 
   readEmployee(){
     this.apiService.getTeachers().subscribe((data) => {
-     this.Employee = data;
-     for (let i = 0; i < this.Employee.length; i++)
-    {
-     if (this.Employee[i].role == 2)
-     {
-       this.Teachers.push(this.Employee[i]);
-     }
-    }
+     this.Teachers = data;
     })    
   }
 
@@ -39,12 +33,14 @@ export class TeacherListComponent implements OnInit {
     })    
   }
 
-  removeEmployee(id) {
-    if(window.confirm('Are you sure?')) {
+  removeEmployee(id,index) {
+    if(window.confirm('Vous étre sûre?')) {
       this.apiService.deleteEmployee(id).subscribe((res) => {
-        this.router.navigateByUrl('/admin/main')
+        this.Teachers.splice(index,1)
+        this.toastService.success("Enseignant supprimé!")
        },
        err => {
+         this.toastService.error("Error")
          console.error(err)
        })  
     }
