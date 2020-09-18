@@ -35,7 +35,7 @@ mongoose.connect(dbConfig.db, {
 var usersRouter = require('../backend/routes/users');
 var adminRouter = require('../backend/routes/admin.route');
 var clasRouter = require('../backend/routes/clas.route');
-var courseRouter = require('../backend/routes/course');
+var courseRouter = require('./routes/course');
 
 
 
@@ -59,7 +59,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use('/', express.static(path.join(__dirname, 'dist/frontend')));
-
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/class', clasRouter);

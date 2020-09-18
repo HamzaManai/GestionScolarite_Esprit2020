@@ -24,10 +24,12 @@ export class CourseViewComponent implements OnInit {
     private actRoute: ActivatedRoute,
     private apiService: ApiService
   ) {
-    this.readCourse();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.readCourse();
+
+  }
 
   readCourse(){
     this.apiService.profile().subscribe(
@@ -40,6 +42,7 @@ export class CourseViewComponent implements OnInit {
     )
     this.apiService.getCourses().subscribe((data) => {
      this.Course = data;
+console.log('data', this.Course);
 
      for (let i = 0; i < this.Course.length; i++)
      {
