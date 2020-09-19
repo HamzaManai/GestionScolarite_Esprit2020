@@ -60,11 +60,16 @@ import { AgentExamEditComponent } from './components/agent-exam-edit/agent-exam-
 import { AgentScolariteListComponent } from './components/agent-scolarite-list/agent-scolarite-list.component';
 
 
- 
+
 import { ToastrModule } from 'ngx-toastr';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CourseAgentScolariteComponent } from './components/course-agent-scolarite/course-agent-scolarite.component';
 import { CourseAgentExamComponent } from './components/course-agent-exam/course-agent-exam.component';
+import { SidebarHodComponent } from './components/sidebar-hod/sidebar-hod.component';
+import { SidebarTeacherComponent } from './components/sidebar-teacher/sidebar-teacher.component';
+import { SidebarAgentSCComponent } from './components/sidebar-agent-sc/sidebar-agent-sc.component';
+import { SidebarAgentEXComponent } from './components/sidebar-agent-ex/sidebar-agent-ex.component';
+import { SidebarStudentComponent } from './components/sidebar-student/sidebar-student.component';
 
 
 export function tokenGetter() {
@@ -112,7 +117,12 @@ export function tokenGetter() {
     SidebarComponent,
     CourseAgentScolariteComponent,
     CourseAgentExamComponent,
-    
+    SidebarHodComponent,
+    SidebarTeacherComponent,
+    SidebarAgentSCComponent,
+    SidebarAgentEXComponent,
+    SidebarStudentComponent,
+
 
 
   ],

@@ -1,8 +1,8 @@
 
 <div class="container-fluid display-table">
   <app-sidebar></app-sidebar>
-   
- 
+
+
 <div class="container">
     <div class="jumbotron mt-5">
         <div class="col-sm-8 mx-auto">
@@ -19,6 +19,7 @@
             <th scope="col">Prenom</th>
             <th scope="col">Nom</th>
             <th scope="col">Departement</th>
+            <th scope="col">Chef Departemen</th>
             <th scope="col">Date Naissance </th>
             <th scope="col"> Telephone </th>
             <th scope="col"> Email </th>
@@ -30,6 +31,7 @@
             <td>{{teacher.firstname}}</td>
             <td>{{teacher.lastname}}</td>
             <td>{{teacher.dept.name}}</td>
+            <td>{{teacher.hod}}</td>
             <td>{{teacher.DateNaiss}}</td>
             <td>{{teacher.tlf}}</td>
             <td>{{teacher.email}}</td>
