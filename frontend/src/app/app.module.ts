@@ -42,7 +42,7 @@ import { DepartmentEditComponent } from './components/department-edit/department
 import { CourseEditComponent } from './components/course-edit/course-edit.component';
 import { StudentCreateComponent } from './components/student-create/student-create.component';
 import { ClassCreateComponent } from './components/class-create/class-create.component';
-import { ClassEnrollComponent } from './components/class-enroll/class-enroll.component';
+import { PaiementhodComponent } from './components/Paiement-hod/Paiement-hod.component';
 import { StudentMainComponent } from './components/student-main/student-main.component';
 import { StudentClassComponent } from './components/student-class/student-class.component';
 import { ClassEnrollTeacherComponent } from './components/class-enroll-teacher/class-enroll-teacher.component';
@@ -98,7 +98,7 @@ export function tokenGetter() {
     CourseEditComponent,
     StudentCreateComponent,
     ClassCreateComponent,
-    ClassEnrollComponent,
+    PaiementhodComponent,
     StudentMainComponent,
     StudentClassComponent,
     ClassEnrollTeacherComponent,

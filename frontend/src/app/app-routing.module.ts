@@ -21,7 +21,7 @@ import { CourseEditComponent } from './components/course-edit/course-edit.compon
 import { StudentCreateComponent } from './components/student-create/student-create.component';
 import { ClassCreateComponent } from './components/class-create/class-create.component';
 
-import { ClassEnrollComponent } from './components/class-enroll/class-enroll.component';
+import { PaiementhodComponent  } from './components/Paiement-hod/Paiement-hod.component';
 
 import { StudentMainComponent } from './components/student-main/student-main.component';
 import { StudentClassComponent } from './components/student-class/student-class.component';
@@ -64,7 +64,7 @@ const routes: Routes = [
   { path: 'courseView', component: CourseViewComponent,canActivate: [AuthGuard] },
   { path: 'studentCreate', component: StudentCreateComponent,canActivate: [AuthGuard] },
   { path: 'class/create', component: ClassCreateComponent,canActivate: [AuthGuard] },
-  { path: 'class/enroll/:id', component: ClassEnrollComponent,canActivate: [AuthGuard] },
+  { path: 'class/enroll/:id', component: PaiementhodComponent,canActivate: [AuthGuard] },
   { path: 'student/main', component: StudentMainComponent,canActivate: [AuthGuard]},
   { path: 'student/main/:id', component: StudentMainComponent,canActivate: [AuthGuard]},
   { path: 'student/class', component: StudentClassComponent,canActivate: [AuthGuard]},

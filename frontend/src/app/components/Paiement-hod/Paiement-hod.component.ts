@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
-import { ApiService } from './../../service/api.service';
+import { ApiService } from '../../service/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-class-enroll',
-  templateUrl: './class-enroll.component.html',
-  styleUrls: ['./class-enroll.component.css']
+  selector: 'app-Paiement-hod',
+  templateUrl: './Paiement-hod.component.html',
+  styleUrls: ['./Paiement-hod.component.css']
 })
-export class ClassEnrollComponent implements OnInit {
+export class PaiementhodComponent  implements OnInit {
 
   submitted = false;
   editForm: FormGroup;
@@ -45,7 +45,7 @@ export class ClassEnrollComponent implements OnInit {
   getStudents(){
     this.apiService.getStudents().subscribe((data) => {
       this.Student = data;
-     })    
+     })
   }
 
   getEmployee(id) {
@@ -53,7 +53,7 @@ export class ClassEnrollComponent implements OnInit {
       this.editForm.setValue({
         name: data['name']
       });
-     
+
     });
   }
   updateProfile(e){
@@ -61,7 +61,7 @@ export class ClassEnrollComponent implements OnInit {
     //   onlySelf: true
     // })
     this.editForm.get('student').setValue(e, {
-     
+
       onlySelf: true
     })
 
@@ -70,7 +70,7 @@ export class ClassEnrollComponent implements OnInit {
   {
     for (let gam of this.students) {
       this.studentIds.push(gam._id);
-      
+
 
     }
   }
@@ -84,12 +84,12 @@ export class ClassEnrollComponent implements OnInit {
     for (let gam of this.studentIds) {
       this.apiService.updateStudentClass(gam, data2)
       .subscribe(res => {
-       
+
         console.log('Content updated successfully!')
       }, (error) => {
         console.log(error)
       })
-      
+
 
     }
   }
@@ -118,7 +118,7 @@ export class ClassEnrollComponent implements OnInit {
           }, (error) => {
             console.log(error)
           })
-      
+
     }
   }
 
