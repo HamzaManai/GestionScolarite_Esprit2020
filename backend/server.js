@@ -63,8 +63,7 @@ app.use('/', express.static(path.join(__dirname, 'dist/frontend')));
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/class', clasRouter);
-
-// app.use('/course', courseRouter);
+app.use('/course', courseRouter);
 
 // Create port
 const port = process.env.PORT || 4000;
