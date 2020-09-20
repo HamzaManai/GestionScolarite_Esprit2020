@@ -46,6 +46,7 @@ import { AgentScolariteMainComponent } from './components/agent-scolarite-main/a
 import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
 import { TeacherMessagerieComponent } from './components/teacher-messagerie/teacher-messagerie.component';
 import { AgentScolariteMessagerieComponent } from './components/agent-scolarite-messagerie/agent-scolarite-messagerie.component';
+import { CourseAgentScolariteComponent } from './components/course-agent-scolarite/course-agent-scolarite.component';
 
 
 const routes: Routes = [
@@ -88,8 +89,8 @@ const routes: Routes = [
 
   {path: 'teacher/messagerie' , component:TeacherMessagerieComponent,canActivate: [AuthGuard]},
   {path: 'AgentSC/messagerie' , component:AgentScolariteMessagerieComponent,canActivate: [AuthGuard]},
-
-
+  {path: 'AgentSC/module' , component:CourseAgentScolariteComponent,canActivate: [AuthGuard]},
+  {path: 'AgentEX/module' , component:CourseAgentScolariteComponent,canActivate: [AuthGuard]},
 
   {path:  'agentExamCreate', component:AgentExamCreateComponent,canActivate: [AuthGuard]},
   {path: 'agentExamList' , component:AgentExamListComponent,canActivate: [AuthGuard]},

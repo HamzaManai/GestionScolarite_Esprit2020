@@ -75,6 +75,7 @@ import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TeacherMessagerieComponent } from './components/teacher-messagerie/teacher-messagerie.component';
 import { AgentScolariteMessagerieComponent } from './components/agent-scolarite-messagerie/agent-scolarite-messagerie.component';
+import { HodCourseValidComponent } from './components/hod-course-valid/hod-course-valid.component';
 
 
 export function tokenGetter() {
@@ -131,6 +132,7 @@ export function tokenGetter() {
     AgentExamMainComponent,
     TeacherMessagerieComponent,
     AgentScolariteMessagerieComponent,
+    HodCourseValidComponent,
 
 
 
