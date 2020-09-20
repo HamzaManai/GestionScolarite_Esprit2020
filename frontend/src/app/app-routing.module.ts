@@ -88,6 +88,7 @@ const routes: Routes = [
   {path: 'StudentEdit/:id' , component:AgentScolariteMainComponent,canActivate: [AuthGuard]},
 
   {path: 'teacher/messagerie' , component:TeacherMessagerieComponent,canActivate: [AuthGuard]},
+  {path: 'AgentSC/messagerie' , component:AgentScolariteMessagerieComponent,canActivate: [AuthGuard]},
 
 
 
