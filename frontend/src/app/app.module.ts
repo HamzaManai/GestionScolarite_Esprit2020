@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
-import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -77,6 +76,7 @@ import { TeacherMessagerieComponent } from './components/teacher-messagerie/teac
 import { AgentScolariteModuleComponent } from './components/agent-scolarite-module/agent-scolarite-module.component';
 import { AgentScolariteMessagerieComponent } from './components/agent-scolarite-messagerie/agent-scolarite-messagerie.component';
 import { AgentExamenModuleComponent } from './components/agent-examen-module/agent-examen-module.component';
+import { HodCourseValidComponent } from './components/hod-course-valid/hod-course-valid.component';
 
 
 export function tokenGetter() {
@@ -87,10 +87,8 @@ export function tokenGetter() {
   declarations: [
     AppComponent,
     EmployeeEditComponent,
-    LoginComponent,
     SignupComponent,
     LoginAdminComponent,
-
     HomepageComponent,
     TeacherCreateComponent,
     DepartmentCreateComponent,
@@ -135,6 +133,7 @@ export function tokenGetter() {
     AgentScolariteModuleComponent,
     AgentScolariteMessagerieComponent,
     AgentExamenModuleComponent,
+    HodCourseValidComponent,
 
 
 
@@ -159,12 +158,9 @@ export function tokenGetter() {
         blacklistedRoutes: ['localhost:4000/users/login']
       }
     }),
-
-
-
     BrowserAnimationsModule
   ],
-  providers: [ApiService,ApiDashService, {provide: HTTP_INTERCEPTORS,
+  providers: [ApiService, ApiDashService, {provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true}],
   bootstrap: [AppComponent]

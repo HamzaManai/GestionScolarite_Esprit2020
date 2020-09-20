@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
-import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from "./shared/auth.guard";
 import { AdminMainComponent } from './components/admin-main/admin-main.component';
@@ -21,7 +20,7 @@ import { CourseEditComponent } from './components/course-edit/course-edit.compon
 import { StudentCreateComponent } from './components/student-create/student-create.component';
 import { ClassCreateComponent } from './components/class-create/class-create.component';
 
-import { PaiementhodComponent  } from './components/Paiement-hod/Paiement-hod.component';
+import { PaiementhodComponent } from './components/Paiement-hod/Paiement-hod.component';
 
 import { StudentMainComponent } from './components/student-main/student-main.component';
 import { StudentClassComponent } from './components/student-class/student-class.component';
@@ -32,7 +31,7 @@ import { StudentProfileComponent } from './components/student-profile/student-pr
 import { StudentComplainComponent } from './components/student-complain/student-complain.component';
 import { HodComplainViewComponent } from './components/hod-complain-view/hod-complain-view.component';
 
-import {HomepageComponent} from './components/homepage/homepage.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { AgentScolariteListComponent } from './components/agent-scolarite-list/agent-scolarite-list.component';
 import { AgentScolariteCreateComponent } from './components/agent-scolarite-create/agent-scolarite-create.component';
@@ -52,43 +51,41 @@ import { AgentExamenModuleComponent } from './components/agent-examen-module/age
 const routes: Routes = [
 
   { path: 'edit-employee/:id', component: EmployeeEditComponent },
-  { path: 'home', component: HomepageComponent},
-  { path: 'signup', component: SignupComponent},
-  // { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard]},
-  // { path: 'dashboard/:id', component: DashboardComponent,canActivate: [AuthGuard]},
-  { path: 'admin/main', component: AdminMainComponent,canActivate: [AuthGuard]},
-  { path: 'teacher/main', component: TeacherMainComponent,canActivate: [AuthGuard]},
-  { path: 'hod/main', component: HodMainComponent,canActivate: [AuthGuard]},
-  { path: 'admin/main/:id', component: AdminMainComponent,canActivate: [AuthGuard]},
-  { path: 'teacherCreate', component: TeacherCreateComponent,canActivate: [AuthGuard] },
-  { path: 'teacherList', component: TeacherListComponent,canActivate: [AuthGuard] },
-  { path: 'teacherEdit/:id', component: TeacherEditComponent,canActivate: [AuthGuard] },
-  { path: 'deptEdit/:id', component: DepartmentEditComponent,canActivate: [AuthGuard] },
-  { path: 'courseEdit/:id', component: CourseEditComponent,canActivate: [AuthGuard] },
-  { path: 'deptCreate', component: DepartmentCreateComponent,canActivate: [AuthGuard] },
-  { path: 'hodCreate', component: HodCreateComponent,canActivate: [AuthGuard] },
-  { path: 'courseManage', component: CourseManageComponent,canActivate: [AuthGuard] },
-  { path: 'courseView', component: CourseViewComponent,canActivate: [AuthGuard] },
-  { path: 'studentCreate', component: StudentCreateComponent,canActivate: [AuthGuard] },
-  { path: 'class/create', component: ClassCreateComponent,canActivate: [AuthGuard] },
-  { path: 'class/enroll/:id', component: PaiementhodComponent,canActivate: [AuthGuard] },
-  { path: 'student/main', component: StudentMainComponent,canActivate: [AuthGuard]},
-  { path: 'student/main/:id', component: StudentMainComponent,canActivate: [AuthGuard]},
-  { path: 'student/class', component: StudentClassComponent,canActivate: [AuthGuard]},
-  { path: 'student/class/:id', component: StudentClassComponent,canActivate: [AuthGuard]},
-  { path: 'student/profile', component: StudentProfileComponent,canActivate: [AuthGuard]},
-  { path: 'student/complain', component: StudentComplainComponent,canActivate: [AuthGuard]},
-  {path:  'studentList', component:StudentListComponent,canActivate: [AuthGuard]},
-  { path: 'hod/complain/view', component: HodComplainViewComponent,canActivate: [AuthGuard]},
-  { path: 'teacher/class', component: ClassEnrollTeacherComponent,canActivate: [AuthGuard]},
-  { path: 'teacher/class/:id', component: ClassEnrollTeacherComponent,canActivate: [AuthGuard]},
-  {path:  'agentScolariteCreate', component:AgentScolariteCreateComponent,canActivate: [AuthGuard]},
-  {path: 'agentScolariteList' , component:AgentScolariteListComponent,canActivate: [AuthGuard]},
-  {path: 'AgentScolariteEdit/:id' , component:AgentScolariteEditComponent,canActivate: [AuthGuard]},
-  {path: 'StudentEdit/:id' , component:AgentScolariteMainComponent,canActivate: [AuthGuard]},
+  { path: 'home', component: HomepageComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'admin/main', component: AdminMainComponent, canActivate: [AuthGuard] },
+  { path: 'teacher/main', component: TeacherMainComponent, canActivate: [AuthGuard] },
+  { path: 'hod/main', component: HodMainComponent, canActivate: [AuthGuard] },
+  { path: 'admin/main/:id', component: AdminMainComponent, canActivate: [AuthGuard] },
+  { path: 'teacherCreate', component: TeacherCreateComponent, canActivate: [AuthGuard] },
+  { path: 'teacherList', component: TeacherListComponent, canActivate: [AuthGuard] },
+  { path: 'teacherEdit/:id', component: TeacherEditComponent, canActivate: [AuthGuard] },
+  { path: 'deptEdit/:id', component: DepartmentEditComponent, canActivate: [AuthGuard] },
+  { path: 'courseEdit/:id', component: CourseEditComponent, canActivate: [AuthGuard] },
+  { path: 'deptCreate', component: DepartmentCreateComponent, canActivate: [AuthGuard] },
+  { path: 'hodCreate', component: HodCreateComponent, canActivate: [AuthGuard] },
+  { path: 'courseManage', component: CourseManageComponent, canActivate: [AuthGuard] },
+  { path: 'courseView', component: CourseViewComponent, canActivate: [AuthGuard] },
+  { path: 'studentCreate', component: StudentCreateComponent, canActivate: [AuthGuard] },
+  { path: 'class/create', component: ClassCreateComponent, canActivate: [AuthGuard] },
+  { path: 'class/enroll/:id', component: PaiementhodComponent, canActivate: [AuthGuard] },
+  { path: 'student/main', component: StudentMainComponent, canActivate: [AuthGuard] },
+  { path: 'student/main/:id', component: StudentMainComponent, canActivate: [AuthGuard] },
+  { path: 'student/class', component: StudentClassComponent, canActivate: [AuthGuard] },
+  { path: 'student/class/:id', component: StudentClassComponent, canActivate: [AuthGuard] },
+  { path: 'student/profile', component: StudentProfileComponent, canActivate: [AuthGuard] },
+  { path: 'student/complain', component: StudentComplainComponent, canActivate: [AuthGuard] },
+  { path: 'studentList', component: StudentListComponent, canActivate: [AuthGuard] },
+  { path: 'hod/complain/view', component: HodComplainViewComponent, canActivate: [AuthGuard] },
+  { path: 'teacher/class', component: ClassEnrollTeacherComponent, canActivate: [AuthGuard] },
+  { path: 'teacher/class/:id', component: ClassEnrollTeacherComponent, canActivate: [AuthGuard] },
+  { path: 'agentScolariteCreate', component: AgentScolariteCreateComponent, canActivate: [AuthGuard] },
+  { path: 'agentScolariteList', component: AgentScolariteListComponent, canActivate: [AuthGuard] },
+  { path: 'AgentScolariteEdit/:id', component: AgentScolariteEditComponent, canActivate: [AuthGuard] },
+  { path: 'StudentEdit/:id', component: AgentScolariteMainComponent, canActivate: [AuthGuard] },
 
-  {path: 'teacher/messagerie' , component:TeacherMessagerieComponent,canActivate: [AuthGuard]},
-  {path: 'AgentSC/messagerie' , component:AgentScolariteMessagerieComponent,canActivate: [AuthGuard]},
+  { path: 'teacher/messagerie', component: TeacherMessagerieComponent, canActivate: [AuthGuard] },
+  { path: 'AgentSC/messagerie', component: AgentScolariteMessagerieComponent, canActivate: [AuthGuard] },
 
 
 

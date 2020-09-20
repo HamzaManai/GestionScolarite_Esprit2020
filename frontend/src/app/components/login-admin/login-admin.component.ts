@@ -26,6 +26,7 @@ export class LoginAdminComponent {
   constructor(private auth: ApiService, private router: Router, private snackBar: MatSnackBar) {
    }
   public submit() {
+    localStorage.clear();
     this.login();
     }
 // Admin 0: Student 1: Teacher 2: agent examen: 3 agent scolarité: 4   /*lOGIN WASS*/
@@ -35,7 +36,6 @@ export class LoginAdminComponent {
     this.auth.sendCredential(this.username, this.password).subscribe(
       data => {
         console.log(data);
-       // this.token.saveToken(data.token);
         localStorage.setItem('account', JSON.stringify(data.user));
         localStorage.setItem('token', data.token);
         this.snackBar.open('Connected Sucessfully ');
@@ -57,6 +57,9 @@ export class LoginAdminComponent {
         }
         else if (data.user.role === 4) {
           this.router.navigate(['AgentSC/main']);
+        }
+        else {
+          this.router.navigate(['admin/main']);
         }
       },
       error => {

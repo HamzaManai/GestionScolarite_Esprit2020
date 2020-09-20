@@ -414,6 +414,7 @@ router.post('/courseCreate', (req, res, next) => {
 router.post('/login', passport.authenticate('local'), (req, res) => {
   var token = authenticate.getToken({_id: req.user._id});
   var responseAccount = {
+    
   } 
     res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
@@ -425,10 +426,9 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
       hod: user.hod,
       admin : user.admin
     } 
- 
-    res.json({success: true, token: token, status: 'You are successfully logged in!',
-  user: responseAccount});
 
+    res.json({success: true, token: token, status: 'You are successfully logged in!',
+  user: responseAccount})
     }).catch(err => {
     console.log('ERROR', err)
     res.status(401).json({
