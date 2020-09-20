@@ -45,6 +45,7 @@ import { StudentEditComponent } from './components/student-edit/student-edit.com
 import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
 import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
 import { TeacherMessagerieComponent } from './components/teacher-messagerie/teacher-messagerie.component';
+import { AgentScolariteMessagerieComponent } from './components/agent-scolarite-messagerie/agent-scolarite-messagerie.component';
 
 
 const routes: Routes = [
@@ -86,6 +87,7 @@ const routes: Routes = [
   {path: 'StudentEdit/:id' , component:AgentScolariteMainComponent,canActivate: [AuthGuard]},
 
   {path: 'teacher/messagerie' , component:TeacherMessagerieComponent,canActivate: [AuthGuard]},
+  {path: 'AgentSC/messagerie' , component:AgentScolariteMessagerieComponent,canActivate: [AuthGuard]},
 
 
 

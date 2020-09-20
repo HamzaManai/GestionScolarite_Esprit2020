@@ -16,7 +16,6 @@ export class StudentComplainComponent implements OnInit {
   Teachers:any = [];
   currentUser:any = [];
   id:any=[]
-  Ranks: any = ['Beginner', 'Medium', 'Advance'];
   constructor(
     public fb: FormBuilder,
     private router: Router,
@@ -32,7 +31,6 @@ export class StudentComplainComponent implements OnInit {
     
      this.id=this.currentUser._id;
   
-    //  this.router.navigate(['student/class/'+id]);
     })
   }
 
@@ -52,7 +50,6 @@ export class StudentComplainComponent implements OnInit {
 
   }
 
-  // Getter to access form control
   get myForm(){
     return this.playerForm.controls;
   }
