@@ -1,0 +1,48 @@
+
+
+
+<body class="home" style="background-color: white;">
+    <div class="container-fluid display-table">
+
+      <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation" style="width:300px">
+
+        <app-sidebar-hod></app-sidebar-hod>
+
+    </div>
+
+
+    <div class="container" >
+      <div class="jumbotron mt-5">
+          <div class="col-sm-8 mx-auto">
+            <h1 class="text-center">Messages</h1><br>
+            <hr>
+          </div>
+        </div>
+        <p *ngIf="Complaints.length <= 0" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">There are no complaints received yet!</p>
+
+        <!-- Employee list -->
+        <table class="table table-bordered" *ngIf="Complaints.length > 0">
+          <thead class="table-primary">
+            <tr>
+              <th scope="col">Nom </th>
+              <th scope="col">Message</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dept of Complaints; let i = index">
+              <td>{{dept.student.firstname}} {{dept.student.lastname}}</td>
+              <td *ngIf="dept.details!=null">{{dept.details}}</td>
+              <td *ngIf="dept.status==true" style="color:green">Résolu</td>
+              <td *ngIf="dept.status==false" style="color:red" >En cours</td>
+              <td class="text-center edit-block">
+                <span class="edit" (click)="resolveComplaint(dept._id)">
+                  <button *ngIf="dept.status==false" type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Résoudre</button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div></body>

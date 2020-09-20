@@ -39,4 +39,28 @@ exports.updateCourse = (req, res, next) => {
 			});
 		}
 	);
+
+	
+	  
+}
+/*
+Delete Course
+*/
+
+
+exports.deleteCourse = (req, res, next) => {
+	Course.deleteOne({ _id: req.params.id }).then(
+		() => {
+
+			res.status(201).json({
+				message: 'Course Deleted !'
+			});
+		}
+	).catch(
+		(error) => {
+			res.status(400).json({
+				error: error
+			});
+		}
+	);
 }

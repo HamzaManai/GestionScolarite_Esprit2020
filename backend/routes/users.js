@@ -418,22 +418,26 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
     res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   User.findById(req.user._id).then(user => {
-    console.log(user);
-       responseAccount = {
+      responseAccount = {
       username: user.username,
       email: user.email,
       role: user.role,
       hod: user.hod,
       admin : user.admin
     } 
+ 
+    res.json({success: true, token: token, status: 'You are successfully logged in!',
+  user: responseAccount});
+
     }).catch(err => {
     console.log('ERROR', err)
     res.status(401).json({
       error: err
     });
   });
+
  console.log('hani fi wist', req.user._id);
-  res.json({success: true, token: token, status: 'You are successfully logged in!', user: responseAccount });
+  
 });
 
 router.route('/delete/:id').delete((req, res, next) => {

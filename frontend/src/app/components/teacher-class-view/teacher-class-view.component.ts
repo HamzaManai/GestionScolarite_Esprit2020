@@ -24,14 +24,8 @@ export class TeacherClassViewComponent implements OnInit {
     
       id=this.currentUser._id;
   
-    //  this.router.navigate(['student/class/'+id]);
     })
-    // this.authService.getClassStuds(this.currentUser.studClass._id).subscribe(res => {
-     
-    //   this.Class = res;
-    //   alert(this.Class.name)
    
-    // })
    
    }
 
@@ -60,9 +54,7 @@ export class TeacherClassViewComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  // let ids=this.currentUser.studClass._id;
-  // alert(ids)
-  //   this.getClassDetails(this.currentUser.studClass);
+  
   }
 
 }

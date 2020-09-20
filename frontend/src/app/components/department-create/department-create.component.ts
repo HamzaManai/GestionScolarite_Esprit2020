@@ -74,7 +74,9 @@ export class DepartmentCreateComponent implements OnInit {
         (res) => {
 
           console.log('Department successfully created!')
+          window.location.reload();
           this.ngZone.run(() => this.router.navigateByUrl('/deptCreate'))
+          window.location.reload();
         }, (error) => {
           alert(error);
           console.log(error);
@@ -87,6 +89,7 @@ export class DepartmentCreateComponent implements OnInit {
     if(window.confirm('Are you sure?')) {
       this.apiService.deleteDept(id).subscribe((res) => {
        // this.ngZone.run(() => this.router.navigateByUrl('dept/Create'))
+       window.location.reload();
 
         this.router.navigateByUrl('/deptCreate')
 

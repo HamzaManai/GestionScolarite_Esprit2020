@@ -6,12 +6,12 @@ import { Router } from '@angular/router';
 
 
 export interface userData {
-  _id : string,
-  firstname : string,
-  lastname : string,
-  role : number,
-  hod : boolean,
-  admin : boolean
+  _id: string,
+  firstname: string,
+  lastname: string,
+  role: number,
+  hod: boolean,
+  admin: boolean
 }
 
 @Injectable({
@@ -20,18 +20,18 @@ export interface userData {
 
 export class ApiService {
   currentUser = {};
-  baseUri:string = 'http://localhost:4000/admin';
-  baseUri2:string = 'http://localhost:4000/users';
-  baseUri3:string = 'http://localhost:4000/class';
+  baseUri: string = 'http://localhost:4000/admin';
+  baseUri2: string = 'http://localhost:4000/users';
+  baseUri3: string = 'http://localhost:4000/class';
 
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-  constructor(private http: HttpClient,public router: Router ) { }
+  constructor(private http: HttpClient, public router: Router) { }
 
   getUserProfile11() {
     let url = `${this.baseUri3}/user-profile`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -43,7 +43,7 @@ export class ApiService {
     let api = `${this.baseUri3}/get/studs/${id}`;
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res: Response) => {
-       // alert("In users");
+        // alert("In users");
         return res || {}
       }),
       catchError(this.errorMgmt)
@@ -63,7 +63,7 @@ export class ApiService {
 
   getClasses() {
     let url = `${this.baseUri3}/getClass`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -73,7 +73,7 @@ export class ApiService {
 
   getAllStudents() {
     let url = `${this.baseUri3}/getStudents/every`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -83,7 +83,7 @@ export class ApiService {
 
   getStudents() {
     let url = `${this.baseUri3}/getStudents`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -119,7 +119,7 @@ export class ApiService {
 
   getStudentComplaints(): Observable<any> {
     let url = `${this.baseUri3}/studentComplaints`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -127,28 +127,28 @@ export class ApiService {
     )
   }
 
-  createComplaint(data,id): Observable<any> {
+  createComplaint(data, id): Observable<any> {
     let url = `${this.baseUri3}/student/send/complaint/${id}`;
     return this.http.post(url, data)
       .pipe(
         catchError(this.errorMgmt)
       )
   }
-getAllComplaints(){
-  let url = `${this.baseUri3}/allComplaints`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+  getAllComplaints() {
+    let url = `${this.baseUri3}/allComplaints`;
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
       catchError(this.errorMgmt)
     )
-}
+  }
 
-updateComplaint(id): Observable<any> {
- let api = `${this.baseUri3}/hod/resolve/${id}`;
-   // alert(data);
+  updateComplaint(id): Observable<any> {
+    let api = `${this.baseUri3}/hod/resolve/${id}`;
+    // alert(data);
 
-    var data2={
+    var data2 = {
       status: true
     }
     JSON.parse(JSON.stringify(data2));
@@ -160,7 +160,7 @@ updateComplaint(id): Observable<any> {
       catchError(this.errorMgmt)
 
     )
-}
+  }
 
 
 
@@ -223,7 +223,7 @@ updateComplaint(id): Observable<any> {
 
   getDept() {
     let url = `${this.baseUri2}/getDept`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -232,38 +232,38 @@ updateComplaint(id): Observable<any> {
   }
 
 
-    // Get all Teachers
-    getTeachers() {
-      let url = `${this.baseUri2}/getUsersByRole/2`;
-      return this.http.get(url, {headers: this.headers}).pipe(
-        map((res: Response) => {
-          return res || {}
-        }),
-        catchError(this.errorMgmt)
-      )
-    }
+  // Get all Teachers
+  getTeachers() {
+    let url = `${this.baseUri2}/getUsersByRole/2`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
 
-    // Get all Admins
-    getAdmins() {
-      let url = `${this.baseUri2}/getAdmins`;
-      return this.http.get(url, {headers: this.headers}).pipe(
-        map((res: Response) => {
-          return res || {}
-        }),
-        catchError(this.errorMgmt)
-      )
-    }
+  // Get all Admins
+  getAdmins() {
+    let url = `${this.baseUri2}/getAdmins`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
 
 
-    getCourses() {
-      let url = `${this.baseUri2}/getCourses`;
-      return this.http.get(url, {headers: this.headers}).pipe(
-        map((res: Response) => {
-          return res || {}
-        }),
-        catchError(this.errorMgmt)
-      )
-    }
+  getCourses() {
+    let url = `${this.baseUri2}/getCourses`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
 
   getUsers() {
     return this.http.get(`${this.baseUri2}`);
@@ -281,21 +281,21 @@ updateComplaint(id): Observable<any> {
 
   // Login
 
-  sendCredential(username: string, password: string): Observable<any>{
+  sendCredential(username: string, password: string): Observable<any> {
     let url = `${this.baseUri2}/login`;
-    return this.http.post<{token: string}>(url, {username: username, password: password})
-     .pipe(
+    return this.http.post<{ token: string }>(url, { username: username, password: password })
+      .pipe(
         map(result => {
           localStorage.setItem('access_token', result.token);
           return result;
         })
       );
-}
+  }
 
 
   profile(): Observable<any> {
     let api = `${this.baseUri2}/profile`;
-    return this.http.get(api, { headers: { Authorization: `${this.getToken()}` }}).pipe(
+    return this.http.get(api, { headers: { Authorization: `${this.getToken()}` } }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -313,8 +313,8 @@ updateComplaint(id): Observable<any> {
     )
   }
 
-   // User profile
-   getUserProfile(id): Observable<any> {
+  // User profile
+  getUserProfile(id): Observable<any> {
     let api = `${this.baseUri2}/user-profile/${id}`;
     return this.http.get(api, { headers: this.headers }).pipe(
       map((res: Response) => {
@@ -328,8 +328,8 @@ updateComplaint(id): Observable<any> {
     let url = `${this.baseUri2}/firsttime/${id}`;
     JSON.parse(JSON.stringify(data));
 
-     var data2=data+{"firsttime":"false"};
-     JSON.parse(JSON.stringify(data2));
+    var data2 = data + { "firsttime": "false" };
+    JSON.parse(JSON.stringify(data2));
     return this.http.put(url, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )
@@ -365,7 +365,7 @@ updateComplaint(id): Observable<any> {
   // Get employee
   getEmployee(id): Observable<any> {
     let url = `${this.baseUri}/teacher/read/${id}`;
-    return this.http.get(url, {headers: this.headers}).pipe(
+    return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {}
       }),
@@ -373,16 +373,16 @@ updateComplaint(id): Observable<any> {
     )
   }
 
-    // Get employee
-    getDeptt(id): Observable<any> {
-      let url = `${this.baseUri}/dept/read/${id}`;
-      return this.http.get(url, {headers: this.headers}).pipe(
-        map((res: Response) => {
-          return res || {}
-        }),
-        catchError(this.errorMgmt)
-      )
-    }
+  // Get employee
+  getDeptt(id): Observable<any> {
+    let url = `${this.baseUri}/dept/read/${id}`;
+    return this.http.get(url, { headers: this.headers }).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
 
   // Update employee
   updateEmployee(id, data): Observable<any> {
@@ -399,6 +399,13 @@ updateComplaint(id): Observable<any> {
     )
   }
 
+  removeCourses(id): Observable<any> {
+    let url = `${this.baseUri2}/delete/${id}`;
+    return this.http.delete(url, { headers: this.headers }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
   // Delete employee
   delete(id): Observable<any> {
     let url = `${this.baseUri}/delete/${id}`;
@@ -407,13 +414,13 @@ updateComplaint(id): Observable<any> {
     )
   }
 
-    // Delete employee
-    deleteDept(id): Observable<any> {
-      let url = `${this.baseUri}/dept/delete/${id}`;
-      return this.http.delete(url, { headers: this.headers }).pipe(
-        catchError(this.errorMgmt)
-      )
-    }
+  // Delete employee
+  deleteDept(id): Observable<any> {
+    let url = `${this.baseUri}/dept/delete/${id}`;
+    return this.http.delete(url, { headers: this.headers }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
 
   deleteUser(id): Observable<any> {
     let url = `${this.baseUri2}/delete/${id}`;
@@ -421,6 +428,7 @@ updateComplaint(id): Observable<any> {
       catchError(this.errorMgmt)
     )
   }
+
 
 
   // Error handling

@@ -76,8 +76,11 @@ export class CourseManageComponent implements OnInit {
 
       this.apiService.courseRegister(this.playerForm.value).subscribe(
         (res) => {
+          window.location.reload();
+
           console.log('Course successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/hod/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('/courseManage'))
+
         }, (error) => {
           alert(error);
           console.log(error);
@@ -89,5 +92,21 @@ export class CourseManageComponent implements OnInit {
     this.apiService.logout()
     this.router.navigate(['/login']);
   }
+
+  removeCourse(id) {
+    if(window.confirm('Are you sure?')) {
+      this.apiService.removeCourses(id).subscribe((res) => {
+       window.location.reload();
+        this.router.navigateByUrl('/courseManage')
+
+       },
+       err => {
+         console.error(err);
+       })
+    }
+
+  }
+  
+
 
 }

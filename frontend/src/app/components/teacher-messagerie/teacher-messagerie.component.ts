@@ -2,13 +2,12 @@ import { Router } from '@angular/router';
 import {  ApiService } from './../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-
 @Component({
-  selector: 'app-student-complain',
-  templateUrl: './student-complain.component.html',
-  styleUrls: ['./student-complain.component.css']
+  selector: 'app-teacher-messagerie',
+  templateUrl: './teacher-messagerie.component.html',
+  styleUrls: ['./teacher-messagerie.component.css']
 })
-export class StudentComplainComponent implements OnInit {
+export class TeacherMessagerieComponent implements OnInit {
 
   submitted = false;
   playerForm: FormGroup;
@@ -62,7 +61,7 @@ export class StudentComplainComponent implements OnInit {
       this.apiService.createComplaint(this.playerForm.value,this.id).subscribe(
         (res) => {
           console.log('Complaint successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/student/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('/teacher/main'))
         }, (error) => {
           alert(error);
           console.log(error);
@@ -73,4 +72,3 @@ export class StudentComplainComponent implements OnInit {
 
 
 }
-
