@@ -24,12 +24,14 @@ export class CourseManageComponent implements OnInit {
     private ngZone: NgZone,
     private apiService: ApiService
   ) {
+
+  }
+
+  ngOnInit() {
     this.mainForm();
     this.readEmployee();
     this.readCourse();
   }
-
-  ngOnInit() { }
 
 
   mainForm() {
@@ -96,9 +98,7 @@ export class CourseManageComponent implements OnInit {
   removeCourse(id) {
     if(window.confirm('Are you sure?')) {
       this.apiService.removeCourses(id).subscribe((res) => {
-       window.location.reload();
-        this.router.navigateByUrl('/courseManage')
-
+      this.readCourse();
        },
        err => {
          console.error(err);
@@ -106,7 +106,7 @@ export class CourseManageComponent implements OnInit {
     }
 
   }
-  
+
 
 
 }

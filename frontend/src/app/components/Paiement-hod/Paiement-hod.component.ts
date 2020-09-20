@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { ApiService } from '../../service/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+
 
 @Component({
   selector: 'app-Paiement-hod',
@@ -13,19 +15,26 @@ export class PaiementhodComponent  implements OnInit {
   submitted = false;
   editForm: FormGroup;
   studentForm: FormGroup;
-  Student: any= [];
-  students: any=[];
-  studentIds: any=[];
-  Clas: any= [];
+  Student: any = [];
+  students: any = [];
+  studentIds: any = [];
+  Clas: any = [];
+  Course: any = [];
+  Employee: any = [];
+  Teachers: any = [];
+  Dept: any = [];
 
   constructor(
     public fb: FormBuilder,
     private actRoute: ActivatedRoute,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
+    this.readEmployee();
+    this.readCourse();
     this.updateDept();
     let id = this.actRoute.snapshot.paramMap.get('id');
    this.getStudents();
@@ -122,4 +131,40 @@ export class PaiementhodComponent  implements OnInit {
     }
   }
 
+  readEmployee() {
+    this.apiService.getTeachers().subscribe((data) => {
+      this.Employee = data;
+      for (let i = 0; i < this.Employee.length; i++) {
+        if (this.Employee[i].role == 2) {
+          this.Teachers.push(this.Employee[i]);
+        }
+      }
+    })
+  }
+  readCourse() {
+    this.apiService.getCourses().subscribe((data) => {
+      this.Course = data;
+      console.log('dara', data);
+
+    })
+  }
+  updateCourse(id) {
+    this.apiService.apiPut(`/updatestc/` + id, { "current_Progress" : true }).subscribe(
+      (response: any) => {
+        this.snackBar.open(JSON.stringify(response.message));
+        this.readCourse();
+      }
+    );
+
+  }
+
+  payement(id) {
+    this.apiService.apiPut(`/updatestc/` + id, { "payement" : true }).subscribe(
+      (response: any) => {
+        this.snackBar.open(JSON.stringify(response.message));
+        this.readCourse();
+      }
+    );
+
+  }
 }

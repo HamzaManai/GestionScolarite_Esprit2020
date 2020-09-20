@@ -23,6 +23,7 @@ export class ApiService {
   baseUri: string = 'http://localhost:4000/admin';
   baseUri2: string = 'http://localhost:4000/users';
   baseUri3: string = 'http://localhost:4000/class';
+  baseUri4: string = 'http://localhost:4000/course';
 
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -400,7 +401,7 @@ export class ApiService {
   }
 
   removeCourses(id): Observable<any> {
-    let url = `${this.baseUri2}/delete/${id}`;
+    let url = `${this.baseUri4}/delete/${id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )
@@ -445,5 +446,18 @@ export class ApiService {
     return throwError(errorMessage);
   }
 
+  // apiPost(endpoint, body) {
+  //   return this.http.post(this.apiUrl + endpoint, body);
+  // }
+  // apiDelete(endpoint) {
+  //   return this.http.delete(this.apiUrl + endpoint);
+  // }
+  // apiGetAll(endpoint) {
+  //   return this.http.get(this.apiUrl + endpoint);
+  // }
+
+  apiPut(endpoint, body) {
+    return this.http.put(this.baseUri4 + endpoint, body);
+  }
 
 }

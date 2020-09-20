@@ -10,7 +10,16 @@ var course = new Schema({
         type: Number
     },
     current_Progress:{ 
-        type: Number
+        type: Boolean,
+        default: false
+    },
+    payement:{ 
+        type: Boolean,
+        default: false
+    },
+    test: {
+        type: Boolean,
+        default:false
     },
     state: {
         type: Boolean,
