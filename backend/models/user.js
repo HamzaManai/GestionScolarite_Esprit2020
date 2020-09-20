@@ -29,7 +29,7 @@ var User = new Schema({
       role: {// Admin 0: Student 1: Teacher 2: agent examen: 3 agent scolarité: 4 
         type: Number,
         enum:[0,1,2,3,4],
-        default: 1
+        default: 0
       },
       hod:{ //only if role is 2
         type: Boolean,

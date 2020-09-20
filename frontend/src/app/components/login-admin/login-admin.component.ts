@@ -35,9 +35,7 @@ export class LoginAdminComponent {
 
     this.auth.sendCredential(this.username, this.password).subscribe(
       data => {
-        localStorage.clear();
         console.log(data);
-       // this.token.saveToken(data.token);
         localStorage.setItem('account', JSON.stringify(data.user));
         localStorage.setItem('token', data.token);
         this.snackBar.open('Connected Sucessfully ');

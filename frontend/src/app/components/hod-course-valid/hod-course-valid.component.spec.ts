@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import { HodCourseValidComponent } from './hod-course-valid.component';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('HodCourseValidComponent', () => {
+  let component: HodCourseValidComponent;
+  let fixture: ComponentFixture<HodCourseValidComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      declarations: [ HodCourseValidComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(HodCourseValidComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
