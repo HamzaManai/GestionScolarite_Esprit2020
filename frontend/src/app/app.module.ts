@@ -73,6 +73,7 @@ import { SidebarStudentComponent } from './components/sidebar-student/sidebar-st
 import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
 import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TeacherMessagerieComponent } from './components/teacher-messagerie/teacher-messagerie.component';
 
 
 export function tokenGetter() {
@@ -127,6 +128,7 @@ export function tokenGetter() {
     SidebarStudentComponent,
     AgentScolariteMainComponent,
     AgentExamMainComponent,
+    TeacherMessagerieComponent,
 
 
 

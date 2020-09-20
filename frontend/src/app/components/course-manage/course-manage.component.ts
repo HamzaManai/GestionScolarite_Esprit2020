@@ -92,14 +92,12 @@ export class CourseManageComponent implements OnInit {
     this.apiService.logout()
     this.router.navigate(['/login']);
   }
-/*
+
   removeCourse(id) {
     if(window.confirm('Are you sure?')) {
-      this.apiService.deleteDept(id).subscribe((res) => {
-       // this.ngZone.run(() => this.router.navigateByUrl('dept/Create'))
+      this.apiService.removeCourses(id).subscribe((res) => {
        window.location.reload();
-
-        this.router.navigateByUrl('/deptCreate')
+        this.router.navigateByUrl('/courseManage')
 
        },
        err => {
@@ -108,7 +106,7 @@ export class CourseManageComponent implements OnInit {
     }
 
   }
-  */
+  
 
 
 }

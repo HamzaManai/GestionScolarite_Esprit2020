@@ -410,6 +410,13 @@ updateComplaint(id): Observable<any> {
     )
   }
 
+  removeCourses(id): Observable<any> {
+    let url = `${this.baseUri2}/delete/${id}`;
+    return this.http.delete(url, {headers: this.headers}).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
   // Delete employee
   delete(id): Observable<any> {
     let url = `${this.baseUri}/delete/${id}`;
@@ -432,6 +439,7 @@ updateComplaint(id): Observable<any> {
       catchError(this.errorMgmt)
     )
   }
+  
 
 
   // Error handling

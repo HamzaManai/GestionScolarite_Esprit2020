@@ -83,8 +83,8 @@
               <span class="edit" >
                 <button type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Edit</button>
               </span>
-              <span class="delete" >
-                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+              <span class="delete" (click)="removeCourse(cour._id)">
+                <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
               </span>
             </td>
           </tr>
