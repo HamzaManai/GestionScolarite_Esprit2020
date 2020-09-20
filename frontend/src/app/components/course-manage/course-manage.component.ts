@@ -56,6 +56,8 @@ export class CourseManageComponent implements OnInit {
   readCourse(){
     this.apiService.getCourses().subscribe((data) => {
      this.Course = data;
+     console.log('dara', data);
+
     })
   }
 

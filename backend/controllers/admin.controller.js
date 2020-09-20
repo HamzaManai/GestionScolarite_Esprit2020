@@ -46,7 +46,7 @@ model.exports={
           {
             res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
-              console.log(results);
+              // console.log(results);
             res.json(results)
           }
         });
@@ -87,8 +87,8 @@ model.exports={
     }
     ,
     deltEmpl : (req, res) => {
-      console.log("azazazadqdqdq");
-        console.log(req.params.id,"azazazaz");
+      // console.log("azazazadqdqdq");
+        // console.log(req.params.id,"azazazaz");
         Department.find({_id:req.params.id}).deleteOne(( err,data)=>
         {
           console.log("Department Removed");

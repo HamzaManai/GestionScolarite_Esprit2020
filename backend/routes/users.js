@@ -90,7 +90,7 @@ router.route('/getCourses').get((req, res) => {
     {
       res.statusCode = 200;
           res.setHeader('Content-Type', 'application/json');
-          console.log(results)
+          // console.log(results)
       res.json(results)
     }
   });
