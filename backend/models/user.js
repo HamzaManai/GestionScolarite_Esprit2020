@@ -26,8 +26,9 @@ var User = new Schema({
           default: ''
 
       },
-      role: {// 0: Admin 1: Student 2: Teacher 3: Exam Officer 4: Tution Agent 
+      role: {// Admin 0: Student 1: Teacher 2: agent examen: 3 agent scolarité: 4 
         type: Number,
+        enum:[0,1,2,3,4],
         default: 1
       },
       hod:{ //only if role is 2
@@ -66,7 +67,6 @@ userComplaints: [{
   type: mongoose.Schema.Types.ObjectId,
   ref: "complaint"
 }],
-
 });
 
 User.plugin(passportLocalMongoose);

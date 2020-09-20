@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import { AuthService } from '../auth.service';
 
 import { ApiService } from './../../service/api.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
@@ -22,114 +22,50 @@ export class LoginAdminComponent {
   HODs:any = [];
   Students:any= [];
 
-  constructor(private auth: ApiService, private router: Router) {
-    this.readEmployee();
-    this.readStudents();
-    this.readAdmins();
+
+  constructor(private auth: ApiService, private router: Router, private snackBar: MatSnackBar) {
    }
-
-   readStudents(){
-      this.auth.getAllStudents().subscribe((data) => {
-        this.Students=data;
-    }) 
-   }
-
-   readAdmins(){
-    this.auth.getAdmins().subscribe((data) => {
-      this.Admins = data;
-    })
- }
-
-   readEmployee(){
-    this.auth.getTeachers().subscribe((data) => {
-     this.Employee = data;
-
-      for (let i = 0; i < this.Employee.length; i++)
-      {
-      if (this.Employee[i].role == 2 && this.Employee[i].hod == false)
-      {
-        this.Teachers.push(this.Employee[i]);
-      }
-      }
-
-      for (let i = 0; i < this.Employee.length; i++)
-      {
-      if (this.Employee[i].role == 2 && this.Employee[i].hod == true)
-      {
-        this.HODs.push(this.Employee[i]);
-      }
-      }
-    })
-  }
-
   public submit() {
-    
-    for (let i = 0; i < this.Admins.length; i++)
-    {
-    
-      if (this.Admins[i].username == this.username)
-      {
-        
-        this.auth.login(this.username, this.password)
-        .pipe(first())
-        .subscribe(
-       
-          result => this.router.navigate(['admin/main']),
-          err => this.error = 'Could not authenticate'
-         
-        );
-      }
+    this.login();
     }
+// Admin 0: Student 1: Teacher 2: agent examen: 3 agent scolarité: 4   /*lOGIN WASS*/
 
-    for (let i = 0; i < this.Teachers.length; i++)
-    {
-    if (this.Teachers[i].username == this.username)
-    {
-      this.auth.loginTeacher(this.username, this.password)
-      .pipe(first())
-      .subscribe(
-     
-        result => this.router.navigate(['teacher/main']),
-        err => this.error = 'Could not authenticate'
-       
-      );
-    }
+  login(): void {
+
+    this.auth.sendCredential(this.username, this.password).subscribe(
+      data => {
+        console.log(data);
+       // this.token.saveToken(data.token);
+        localStorage.setItem('account', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token);
+        this.snackBar.open('Connected Sucessfully ');
+        if (data.user.role === 0) {
+          this.router.navigate(['admin/main']);
+        }
+        else if (data.user.role === 1) {
+          this.router.navigate(['student/main']);
+        }
+        else if (data.user.role === 2) {
+          this.router.navigate(['teacher/main']);
+        }
+        else if (data.user.role === 2 && data.user.hod === true) {
+          this.router.navigate(['hod/main']);
+        }
+        else if (data.user.role === 3) {
+          this.router.navigate(['agentScol/main']);
+        }
+        else if (data.user.role === 4) {
+          this.router.navigate(['agentExam/main']);
+        }
+      },
+      error => {
+        console.log(error);
+        this.snackBar.open('Failed to connect');
+      },
+    );
+
+
   }
 
- 
-
-  for (let i = 0; i < this.HODs.length; i++)
-  {
-    if (this.HODs[i].username == this.username)
-    {
-      this.auth.login(this.username, this.password)
-      .pipe(first())
-      .subscribe(
-     
-        result => this.router.navigate(['hod/main']),
-        err => this.error = 'Could not authenticate'
-       
-      );
-    }
-  }
-
-  for (let i = 0; i < this.Students.length; i++)
-  {
-
-    if (this.Students[i].username == this.username)
-    {
-      this.auth.login(this.username, this.password)
-      .pipe(first())
-      .subscribe(
-     
-        result => this.router.navigate(['student/main']),
-        err => this.error = 'Could not authenticate'
-       
-      );
-    }
-
-  }
-    
-  }
 }
 

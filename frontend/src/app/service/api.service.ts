@@ -285,25 +285,24 @@ updateComplaint(id): Observable<any> {
      .pipe(
         map(result => {
           localStorage.setItem('access_token', result.token);
-
           return true;
         })
       );
 
   }
 
-  loginTeacher(username: string, password: string):Observable<boolean>  {
+  sendCredential(username: string, password: string): Observable<any>{
     let url = `${this.baseUri2}/login`;
+    const credentials = {username, password};
     return this.http.post<{token: string}>(url, {username: username, password: password})
      .pipe(
         map(result => {
           localStorage.setItem('access_token', result.token);
-
-          return true;
+          return result;
         })
       );
+}
 
-  }
 
   profile(): Observable<any> {
     let api = `${this.baseUri2}/profile`;

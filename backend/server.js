@@ -35,11 +35,7 @@ mongoose.connect(dbConfig.db, {
 var usersRouter = require('../backend/routes/users');
 var adminRouter = require('../backend/routes/admin.route');
 var clasRouter = require('../backend/routes/clas.route');
-<<<<<<< HEAD
-var courseRouter = require('./routes/course.route');
-=======
 var courseRouter = require('./routes/course');
->>>>>>> 955aff5be1bec5ced526638dcab9ac5bd7e6b1e8
 
 
 

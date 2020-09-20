@@ -72,6 +72,7 @@ import { SidebarAgentEXComponent } from './components/sidebar-agent-ex/sidebar-a
 import { SidebarStudentComponent } from './components/sidebar-student/sidebar-student.component';
 import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
 import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 export function tokenGetter() {
@@ -134,6 +135,7 @@ export function tokenGetter() {
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
     AppRoutingModule,
     HttpClientModule,
     MatCheckboxModule,
