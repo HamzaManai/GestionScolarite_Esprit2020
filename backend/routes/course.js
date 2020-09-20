@@ -7,5 +7,6 @@ const courseCtrl = require('../controllers/course');
 
 /*Update Pack*/
 router.put('/update/:id' , courseCtrl.updateCourse);
-
+/*delete*/
+router.delete('/delete/:id',courseCtrl.removeCourse)
 module.exports = router;

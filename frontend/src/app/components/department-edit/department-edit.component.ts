@@ -61,6 +61,7 @@ export class DepartmentEditComponent implements OnInit {
     } else {
       if (window.confirm('Are you sure?')) {
         const id = this.actRoute.snapshot.paramMap.get('id');
+        console.log("Klafes", this.editForm)
         this.apiService.updateDept(id, this.editForm.value)
           .subscribe(res => {
             this.router.navigateByUrl('/deptCreate');

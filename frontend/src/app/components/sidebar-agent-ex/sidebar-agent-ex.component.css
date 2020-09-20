@@ -1,19 +1,6 @@
         /*Main CSS*/
         /*Login Signup Page*/
 
-        .sidebar {
-            height: 100%;
-            width: 160px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            padding-top: 20px;
-          }
-
-
         a:focus,
         a:hover,
         a {
@@ -184,10 +171,6 @@
             top: 9px;
         }
 
-
-
-
-
         .form-details {
             padding: 35px 0;
         }
@@ -203,7 +186,7 @@
         }
 
         #navigation {
-            background: #C70039;
+            background:#C70039;
         }
 
         #navigation {
@@ -377,8 +360,8 @@
         }
 
         .navi a {
-            border-bottom: 1px solid #0d172e;
-            border-top: 1px solid #0d172e;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
             color: #ffffff;
             display: block;
             font-size: 17px;
@@ -394,7 +377,7 @@
 
         .navi .active a {
             background: black;
-            border-left: 5px solid #5584ff;
+            border-left: 5px solid black;
             padding-left: 15px;
         }
 

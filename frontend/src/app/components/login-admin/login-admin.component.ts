@@ -45,17 +45,18 @@ export class LoginAdminComponent {
         else if (data.user.role === 1) {
           this.router.navigate(['student/main']);
         }
-        else if (data.user.role === 2) {
-          this.router.navigate(['teacher/main']);
-        }
         else if (data.user.role === 2 && data.user.hod === true) {
           this.router.navigate(['hod/main']);
         }
+        else if (data.user.role === 2) {
+          this.router.navigate(['teacher/main']);
+        }
+
         else if (data.user.role === 3) {
-          this.router.navigate(['agentScol/main']);
+          this.router.navigate(['AgentEX/main']);
         }
         else if (data.user.role === 4) {
-          this.router.navigate(['agentExam/main']);
+          this.router.navigate(['AgentSC/main']);
         }
       },
       error => {

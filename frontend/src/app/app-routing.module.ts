@@ -43,7 +43,7 @@ import { AgentScolariteEditComponent } from './components/agent-scolarite-edit/a
 import { StudentEditComponent } from './components/student-edit/student-edit.component';
 
 import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
-
+import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
 
 
 const routes: Routes = [
@@ -91,7 +91,8 @@ const routes: Routes = [
   {path: 'agentExamEdit/:id' , component:AgentExamEditComponent,canActivate: [AuthGuard]},
   { path: 'teacher/view/class', component: TeacherClassViewComponent,canActivate: [AuthGuard]},
   { path: 'teacher/view/class:id', component: TeacherClassViewComponent,canActivate: [AuthGuard]},
-  { path: 'AgentSC/main', component: TeacherClassViewComponent,canActivate: [AuthGuard]},
+  { path: 'AgentSC/main', component: AgentScolariteMainComponent,canActivate: [AuthGuard]},
+  { path: 'AgentEX/main', component:  AgentExamMainComponent ,canActivate: [AuthGuard]},
   { path: 'login', component: LoginAdminComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];
