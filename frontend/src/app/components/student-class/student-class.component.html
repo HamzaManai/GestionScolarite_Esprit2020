@@ -1,24 +1,13 @@
+<body class="home" style="background-color: white;">
+
 <div class="container-fluid display-table">
 
 
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation" style="width:300px" >
-                <div class="logo" style="background-color: white;" >
-                    <a hef="home.html"><img src="../../../assets/images/school.jpg" alt="merkery_logo" class="hidden-xs hidden-sm">
+  <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation" style="width:300px">
 
+    <app-sidebar-student></app-sidebar-student>
 
-                    </a>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li ><a href="/student/main"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Acceuil</span></a></li>
-                        <li><a href="/student/class/" ><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Votre Class et Modules</span></a></li>
-                        <li><a href="/student/complain" ><i class="fa fa-book" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Messagerie</span></a></li>
-
-                        <li><a (click)="logout()" style="cursor: pointer;"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Déconexion</span></a></li>
-                    </ul>
-                </div>
-            </div>
-
+</div>
 
 
 
@@ -52,3 +41,5 @@
       </table>
     </div>
 </div>
+</body>
+

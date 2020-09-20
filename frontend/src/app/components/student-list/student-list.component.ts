@@ -14,7 +14,7 @@ export class StudentListComponent implements OnInit {
   Students:any = [];
   Dept:any = [];
 
-  constructor(private apiService: ApiService, private router: Router ,private toastService:ToastrService) { 
+  constructor(private apiService: ApiService, private router: Router ,private toastService:ToastrService) {
     this.readEmployee();
     this.readDept();
   }
@@ -24,14 +24,14 @@ export class StudentListComponent implements OnInit {
   readEmployee(){
     this.apiService.getUsersByRole(1).subscribe((data) => {
      this.Students = data;
-        })  
+        })
   }
-  
+
 
   readDept(){
     this.apiService.getDept().subscribe((data) => {
      this.Dept = data;
-    })    
+    })
   }
 
   removeEmployee(id,index) {
@@ -43,7 +43,7 @@ export class StudentListComponent implements OnInit {
        err => {
          this.toastService.error("Error")
          console.error(err)
-       })  
+       })
     }
   }
   logout() {

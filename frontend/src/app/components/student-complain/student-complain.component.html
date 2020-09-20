@@ -1,24 +1,12 @@
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
-      <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
-      <a class="navbar-brand border border-secondary p-2 ml-lg-5">
-        <span id="logo">School Portal</span>
-      </a>
-  
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="" role="button" ><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav w-100">
-          <li class="nav-item active ml-auto mr-lg-4 h6 font-weight-bold">
-            <a class="nav-link" style="float:left; margin-top: 10px; margin-right: 30px; font-size: 20px;" routerLink="/student/main">Dashboard</a>          </li>
-        </div>
-      </div>
-    </nav>
+<body class="home" style="background-color: white;">
+<div class="container-fluid display-table">
+  <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation" style="width:300px">
+
+      <app-sidebar-student></app-sidebar-student>
+
   </div>
+
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
@@ -33,16 +21,16 @@
                   Le contenu est obligatoire
               </div>
             </div>
-  
+
             <div class="form-group">
               <button type="submit" id="signup-btn" class="btn btn-lg btn-primary btn-block">Send</button>
             </div>
-  
+
           </form>
         </div>
       </div>
     </div>
-  </div>
+
   <div class="container" style="margin-top: -80px; margin-bottom: 60px;">
     <div class="jumbotron mt-5">
         <div class="col-sm-8 mx-auto">
@@ -68,3 +56,6 @@
         </tbody>
       </table>
     </div>
+</div>
+</div>
+    </body>

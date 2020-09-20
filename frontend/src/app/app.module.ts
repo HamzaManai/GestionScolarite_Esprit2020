@@ -42,7 +42,7 @@ import { DepartmentEditComponent } from './components/department-edit/department
 import { CourseEditComponent } from './components/course-edit/course-edit.component';
 import { StudentCreateComponent } from './components/student-create/student-create.component';
 import { ClassCreateComponent } from './components/class-create/class-create.component';
-import { ClassEnrollComponent } from './components/class-enroll/class-enroll.component';
+import { PaiementhodComponent } from './components/Paiement-hod/Paiement-hod.component';
 import { StudentMainComponent } from './components/student-main/student-main.component';
 import { StudentClassComponent } from './components/student-class/student-class.component';
 import { ClassEnrollTeacherComponent } from './components/class-enroll-teacher/class-enroll-teacher.component';
@@ -70,6 +70,8 @@ import { SidebarTeacherComponent } from './components/sidebar-teacher/sidebar-te
 import { SidebarAgentSCComponent } from './components/sidebar-agent-sc/sidebar-agent-sc.component';
 import { SidebarAgentEXComponent } from './components/sidebar-agent-ex/sidebar-agent-ex.component';
 import { SidebarStudentComponent } from './components/sidebar-student/sidebar-student.component';
+import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
+import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
 
 
 export function tokenGetter() {
@@ -98,7 +100,7 @@ export function tokenGetter() {
     CourseEditComponent,
     StudentCreateComponent,
     ClassCreateComponent,
-    ClassEnrollComponent,
+    PaiementhodComponent,
     StudentMainComponent,
     StudentClassComponent,
     ClassEnrollTeacherComponent,
@@ -122,6 +124,8 @@ export function tokenGetter() {
     SidebarAgentSCComponent,
     SidebarAgentEXComponent,
     SidebarStudentComponent,
+    AgentScolariteMainComponent,
+    AgentExamMainComponent,
 
 
 
