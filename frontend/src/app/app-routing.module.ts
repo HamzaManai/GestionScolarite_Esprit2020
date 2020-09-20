@@ -45,7 +45,9 @@ import { StudentEditComponent } from './components/student-edit/student-edit.com
 import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
 import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
 import { TeacherMessagerieComponent } from './components/teacher-messagerie/teacher-messagerie.component';
-
+import { AgentScolariteModuleComponent } from './components/agent-scolarite-module/agent-scolarite-module.component';
+import { AgentScolariteMessagerieComponent } from './components/agent-scolarite-messagerie/agent-scolarite-messagerie.component';
+import { AgentExamenModuleComponent } from './components/agent-examen-module/agent-examen-module.component';
 
 const routes: Routes = [
 
@@ -96,6 +98,11 @@ const routes: Routes = [
   { path: 'teacher/view/class:id', component: TeacherClassViewComponent,canActivate: [AuthGuard]},
   { path: 'AgentSC/main', component: AgentScolariteMainComponent,canActivate: [AuthGuard]},
   { path: 'AgentEX/main', component:  AgentExamMainComponent ,canActivate: [AuthGuard]},
+
+  { path: 'AgentSC/modules', component:  AgentScolariteModuleComponent ,canActivate: [AuthGuard]},
+  { path: 'AgentSC/messagerie', component:  AgentScolariteMessagerieComponent ,canActivate: [AuthGuard]},
+  { path: 'AgentEX/modules', component:  AgentExamenModuleComponent ,canActivate: [AuthGuard]},
+
   { path: 'login', component: LoginAdminComponent},
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];
