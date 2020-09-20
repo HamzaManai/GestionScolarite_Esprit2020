@@ -24,8 +24,6 @@ export class ApiService {
   baseUri2:string = 'http://localhost:4000/users';
   baseUri3:string = 'http://localhost:4000/class';
 
-  baseUri4:string = 'http://localhost:4000/coaches';
-  baseUri5:string = 'http://localhost:4000/schedules';
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -167,131 +165,6 @@ updateComplaint(id): Observable<any> {
 
 
 
-
-
-
-
-
-
-  CoachResult(id,data): Observable<any> {
-    let api = `${this.baseUri5}/update/winner/${id}`;
-   // alert(data);
-
-    var data2={
-      result: data
-    }
-    JSON.parse(JSON.stringify(data2));
-    return this.http.put(api, data2).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-  CoachRanking(id): Observable<any> {
-    let api = `${this.baseUri5}/update/completed/${id}`;
-
-    var data2={
-      completed: true
-    }
-    JSON.parse(JSON.stringify(data2));
-    return this.http.put(api, data2).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-
-
-  AdminAccept(id): Observable<any> {
-    let api = `${this.baseUri5}/admin/update/permit/${id}`;
-
-    var data2={
-      permit: true
-    }
-    JSON.parse(JSON.stringify(data2));
-    return this.http.put(api, data2).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-  AdminDecline(id): Observable<any> {
-    let url = `${this.baseUri5}/delete/${id}`;
-    return this.http.delete(url, { headers: this.headers }).pipe(
-      catchError(this.errorMgmt)
-    )
-  }
-
-
-  AdminGameDecline(id): Observable<any> {
-    let url = `${this.baseUri5}/delete/game/${id}`;
-    return this.http.delete(url, { headers: this.headers }).pipe(
-      catchError(this.errorMgmt)
-    )
-  }
-
-  AdminGameDeclineJugaar(id): Observable<any> {
-    let api = `${this.baseUri5}/admin/update/permit/game/${id}`;
-
-    var data2={
-      permit: null
-    }
-    JSON.parse(JSON.stringify(data2));
-    return this.http.put(api, data2).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-
-
-
-
-
-  AdminGameAccept(id): Observable<any> {
-    let api = `${this.baseUri5}/admin/update/permit/game/${id}`;
-
-    var data2={
-      permit: true
-    }
-    JSON.parse(JSON.stringify(data2));
-    return this.http.put(api, data2).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-
-
-
-  getUserRanking(id): Observable<any> {
-    let api = `${this.baseUri5}/get/ranking/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-       // alert("In users");
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-
-
   Register(data): Observable<any> {
     let url = `${this.baseUri2}/signup`;
     return this.http.post(url, data)
@@ -333,171 +206,20 @@ updateComplaint(id): Observable<any> {
       )
   }
 
-  getAllSchedule(): Observable<any> {
-    let api = `${this.baseUri5}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-  getCoach(id): Observable<any> {
-    let api = `${this.baseUri4}/read/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-  getCoachSchedule(id): Observable<any> {
-    let api = `${this.baseUri4}/readSession/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-  getCoachMatch(id): Observable<any> {
-    let api = `${this.baseUri4}/readMatch/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-
-  getCoach1(data): Observable<any> {
-    let api = `${this.baseUri4}/read`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-    )
-  }
-
-  getUserSchedule(id): Observable<any> {
-    let api = `${this.baseUri5}/readSession/${id}`;
-
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-  getUserMatch(id): Observable<any> {
-
-    let api = `${this.baseUri5}/readMatch/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-
-  CreateSchedule(id,data): Observable<any> {
-    let api = `${this.baseUri5}/create/schedule/${id}`;
-    JSON.parse(JSON.stringify(data));
-    return this.http.post(api, data).pipe(
-      // timeout(10000),
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
-  getAdminUnpermitted(): Observable<any>{
-    let url = `${this.baseUri5}/admin/permission`;
-    return this.http.get(url, {headers: this.headers}).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-    )
-
-  }
-  getAdminUnpermittedGame(): Observable<any>{
-    let url = `${this.baseUri5}/admin/permission/game`;
-    return this.http.get(url, {headers: this.headers}).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-    )
-
-  }
 
 
 
-  CreateMatch(id,data): Observable<any> {
-    let api = `${this.baseUri5}/create/match/${id}`;
-    JSON.parse(JSON.stringify(data));
-    return this.http.post(api, data).pipe(
-      // timeout(10000),
-      map((res: Response) => {
-
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-
-    )
-  }
 
 
-// User profile
-getGame1(id): Observable<any> {
-  let api = `${this.baseUri3}/get/${id}`;
-  return this.http.get(api, { headers: this.headers }).pipe(
-    map((res: Response) => {
 
-      return res || {}
-    }),
-    catchError(this.errorMgmt)
 
-  )
-}
 
-  getUserGame(id): Observable<any>{
-    let url = `${this.baseUri2}/mygames/${id}`;
-    return this.http.get(url, {headers: this.headers}).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-    )
 
-  }
-  Attendance(id): Observable<any> {
-    let url = `${this.baseUri2}/user/${id}/enter`;
-    return this.http.post(url, id)
-      .pipe(
-        catchError(this.errorMgmt)
-      )
-  }
-   // Get all employees
-   getGames() {
-    return this.http.get(`${this.baseUri3}`);
-  }
+
+
+
+
+
 
   getDept() {
     let url = `${this.baseUri2}/getDept`;
@@ -512,7 +234,7 @@ getGame1(id): Observable<any> {
 
     // Get all Teachers
     getTeachers() {
-      let url = `${this.baseUri2}/getTeachers`;
+      let url = `${this.baseUri2}/getUsersByRole/2`;
       return this.http.get(url, {headers: this.headers}).pipe(
         map((res: Response) => {
           return res || {}
@@ -537,8 +259,6 @@ getGame1(id): Observable<any> {
       let url = `${this.baseUri2}/getCourses`;
       return this.http.get(url, {headers: this.headers}).pipe(
         map((res: Response) => {
-          console.log('res', res);
-
           return res || {}
         }),
         catchError(this.errorMgmt)
@@ -549,24 +269,7 @@ getGame1(id): Observable<any> {
     return this.http.get(`${this.baseUri2}`);
   }
 
-  createCoach(data): Observable<any> {
-    let url = `${this.baseUri4}/create`;
-    return this.http.post(url, data)
-      .pipe(
-        catchError(this.errorMgmt)
-      )
-  }
 
-  // Get employee
-  getGame(id): Observable<any> {
-    let url = `${this.baseUri3}/read/${id}`;
-    return this.http.get(url, {headers: this.headers}).pipe(
-      map((res: Response) => {
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-    )
-  }
   getToken() {
     return localStorage.getItem('access_token');
   }
@@ -665,13 +368,11 @@ getGame1(id): Observable<any> {
   }
 
   // Get all employees
-  getEmployees() {
-    return this.http.get(`${this.baseUri}`);
+  getUsersByRole(role) {
+    return this.http.get(`${this.baseUri2}/getUsersByRole/${role}`);
   }
-//Get all coaches
-getCoaches() {
-  return this.http.get(`${this.baseUri4}`);
-}
+
+
 
   // Get employee
   getEmployee(id): Observable<any> {
@@ -711,8 +412,8 @@ getCoaches() {
   }
 
   // Delete employee
-  deleteEmployee(id): Observable<any> {
-    let url = `${this.baseUri}/teacher/delete/${id}`;
+  delete(id): Observable<any> {
+    let url = `${this.baseUri}/delete/${id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )
@@ -732,18 +433,7 @@ getCoaches() {
       catchError(this.errorMgmt)
     )
   }
-  deleteCoach(id): Observable<any> {
-    let url = `${this.baseUri4}/delete/${id}`;
-    return this.http.delete(url, { headers: this.headers }).pipe(
-      catchError(this.errorMgmt)
-    )
-  }
-  updateCoach(id, data): Observable<any> {
-    let url = `${this.baseUri4}/update/${id}`;
-    return this.http.put(url, data, { headers: this.headers }).pipe(
-      catchError(this.errorMgmt)
-    )
-  }
+
 
   // Error handling
   errorMgmt(error: HttpErrorResponse) {

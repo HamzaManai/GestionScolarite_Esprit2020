@@ -1,23 +1,11 @@
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
-      <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
-      <a class="navbar-brand border border-secondary p-2 ml-lg-5">
-        <span id="logo">ESPRIT</span>
-      </a>
+<body class="home" style="background-color: white;">
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="" role="button" ><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
-      </button>
+<div class="container-fluid display-table">
+  <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+    <app-sidebar-teacher></app-sidebar-teacher>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav w-100">
-          <li class="nav-item active ml-auto mr-lg-4 h6 font-weight-bold">
-            <a class="nav-link" style="float:left; margin-top: 10px; margin-right: 30px; font-size: 20px;" routerLink="/teacher/main">Dashboard</a>          </li>
-        </div>
-      </div>
-    </nav>
+
+
   </div>
 <div class="container">
     <div class="jumbotron mt-5">
@@ -27,7 +15,7 @@
         </div>
       </div>
       <!-- <p *ngIf="currentUser.studClass==null" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">You're not enrolled yet!</p> -->
-  
+
       <!-- Employee list -->
       <table class="table table-bordered">
         <thead class="table-primary">
@@ -35,7 +23,7 @@
             <th scope="col">Classes</th>
             <th scope="col">Modules</th>
             <th scope="col">Etudiants</th>
-         
+
           </tr>
         </thead>
         <tbody>
@@ -43,7 +31,7 @@
             <td>{{cls.name}}</td>
             <td *ngFor="let crs of cls.courses; let i = index">{{crs.name}}</td>
             <td *ngFor="let stud of cls.students; let i = index">{{stud.firstname}}</td>
-         
+
           </tr>
         </tbody>
       </table>

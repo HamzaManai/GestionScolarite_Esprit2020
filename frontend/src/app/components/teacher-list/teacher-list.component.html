@@ -1,64 +1,58 @@
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
-      <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
-      <a class="navbar-brand border border-secondary p-2 ml-lg-5">
-        <span id="logo">ESPRIT</span>
-      </a>
+<body class="home" style="background-color: white;">
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="" role="button" ><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
-      </button>
+  <div class="container-fluid display-table">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav w-100">
-          <li class="nav-item active ml-auto mr-lg-4 h6 font-weight-bold">
-            <a class="nav-link" style="float:left; margin-top: 10px; margin-right: 30px; font-size: 20px;" routerLink="/admin/main">Dashboard</a>          </li>
+
+    <div class="row display-table-row">
+
+    <app-sidebar></app-sidebar>
+
+
+  <div class="container">
+      <div class="jumbotron mt-5">
+          <div class="col-sm-8 mx-auto">
+            <h1 class="text-center">Enseignant</h1><br>
+            <hr>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
-<div class="container">
-    <div class="jumbotron mt-5">
-        <div class="col-sm-8 mx-auto">
-          <h1 class="text-center">Enseignant</h1><br>
-          <hr>
-        </div>
-      </div>
-      <p *ngIf="Teachers.length <= 0" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">Il n'y a pas encore d'enseignants ajoutés!</p>
+        <p *ngIf="Teachers.length <= 0" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">Il n'y a pas encore d'enseignants ajoutés!</p>
 
-      <!-- Employee list -->
-      <table class="table table-bordered" *ngIf="Teachers.length > 0">
-        <thead class="table-primary">
-          <tr>
-            <th scope="col">Prenom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Departement</th>
-            <th scope="col">Date Naissance </th>
-            <th scope="col"> Telephone </th>
-            <th scope="col"> Email </th>
-            <th scope="col">Opérations</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let teacher of Teachers; let i = index">
-            <td>{{teacher.firstname}}</td>
-            <td>{{teacher.lastname}}</td>
-            <td>{{teacher.dept.name}}</td>
-            <td>{{teacher.DateNaiss}}</td>
-            <td>{{teacher.tlf}}</td>
-            <td>{{teacher.email}}</td>
+        <!-- Employee list -->
+        <table class="table table-bordered" *ngIf="Teachers.length > 0">
+          <thead class="table-primary">
+            <tr>
+              <th scope="col">Prenom</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Departement</th>
+              <th scope="col">Chef Departemen</th>
+              <th scope="col">Date Naissance </th>
+              <th scope="col"> Telephone </th>
+              <th scope="col"> Email </th>
+              <th scope="col">Opérations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let teacher of Teachers; let i = index">
+              <td>{{teacher.firstname}}</td>
+              <td>{{teacher.lastname}}</td>
+              <td>{{teacher.dept.name}}</td>
+              <td>{{teacher.hod}}</td>
+              <td>{{teacher.DateNaiss}}</td>
+              <td>{{teacher.tlf}}</td>
+              <td>{{teacher.email}}</td>
 
-            <td class="text-center edit-block">
-                <span class="edit" [routerLink]="['/teacherEdit/', teacher._id]">
-                  <button type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Modifier</button>
-                </span>
-                <span class="delete" (click)="removeEmployee(teacher._id)">
-                  <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
-                </span>
-              </td>
-          </tr>
-        </tbody>
-      </table>
+              <td class="text-center edit-block">
+                  <span class="edit" [routerLink]="['/teacherEdit/', teacher._id]">
+                    <button type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Modifier</button>
+                  </span>
+                  <span class="delete" (click)="removeEmployee(teacher._id,i)">
+                    <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
+                  </span>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+  </body>

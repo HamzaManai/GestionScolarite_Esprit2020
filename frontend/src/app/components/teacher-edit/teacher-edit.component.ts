@@ -27,7 +27,10 @@ export class TeacherEditComponent implements OnInit {
     this.getEmployee(id);
     this.editForm = this.fb.group({
       firstname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]]
+      lastname: ['', [Validators.required]],
+      dateNaiss: ['', [Validators.required]],
+      tlf: ['', [Validators.required]],
+      email: ['', [Validators.required]],
     })
   }
 
@@ -40,7 +43,10 @@ export class TeacherEditComponent implements OnInit {
     this.apiService.getEmployee(id).subscribe(data => {
       this.editForm.setValue({
         firstname: data['firstname'],
-        lastname: data['lastname']
+        lastname: data['lastname'],
+        dateNaiss: data['DateNaiss'],
+        tlf: data['tlf'],
+        email: data['email']
       });
      
     });
@@ -49,7 +55,11 @@ export class TeacherEditComponent implements OnInit {
   updateEmployee() {
     this.editForm = this.fb.group({
       firstname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]]
+      lastname: ['', [Validators.required]],
+      dateNaiss: ['', [Validators.required]],
+      tlf: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+
     })
   }
 

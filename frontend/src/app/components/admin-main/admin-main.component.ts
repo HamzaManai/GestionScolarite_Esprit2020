@@ -12,16 +12,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-main.component.css']
 })
 export class AdminMainComponent implements OnInit {
-  Schedule:any = [];
-  Schedule1:any = [];
-  Match:any= []
-  Employee: any=[];
-  Game: any="Game";
-  Practice:any="Practice";
   
-  MyGames:any=[];
+  Employee: any=[];
+  
+  
+
   constructor(public apiService: ApiService,private router: Router) { 
 
+  }
+
+  readEmployee(){
+    this.apiService.getUsersByRole(0).subscribe((data) => {
+     this.Employee = data[0];
+     console.log
+    })    
   }
 
   ngOnInit() {
@@ -30,8 +34,9 @@ export class AdminMainComponent implements OnInit {
           $("#navigation").toggleClass("hidden-xs");
       });
    });
-  // this.readMatch();
+   this.readEmployee()
   }
+
 
   logout() {
     this.apiService.logout()

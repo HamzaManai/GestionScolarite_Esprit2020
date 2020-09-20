@@ -1,0 +1,67 @@
+<body class="home" style="background-color: white;">
+  <div class="row display-table-row">
+
+  <app-sidebar></app-sidebar>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="form-horizontal">
+          <h5 class="text-center">Modifier Agent de scolarité</h5><hr>
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <label for="inputName">Prénom</label>
+              <input class="form-control" type="text" formControlName="firstname">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.firstname.errors?.required">
+               Le prénom est obligatoire!
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputVerify3">Nom</label>
+              <input class="form-control" type="text" formControlName="lastname">
+              <!-- error -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
+                 Le nom est obligatoire.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputName">Date Naissance</label>
+                <input class="form-control" type="text" formControlName="dateNaiss">
+                <!-- error -->
+                <div class="invalid-feedback" *ngIf="submitted && myForm.dateNaiss.errors?.required">
+                 Le dateNaiss est obligatoire!
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputName">Numéro télephone</label>
+                <input class="form-control" type="text" formControlName="tlf">
+                <!-- error -->
+                <div class="invalid-feedback" *ngIf="submitted && myForm.tlf.errors?.required">
+                 Le Numéro telephone est obligatoire!
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputName">Email</label>
+                <input class="form-control" type="text" formControlName="email">
+                <!-- error -->
+                <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
+                 L'email est obligatoire!
+                </div>
+              </div>
+            <div class="form-group">
+              <button type="submit" id="signup-btn" class="btn btn-lg btn-primary btn-block">Modifier</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

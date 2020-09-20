@@ -1,24 +1,18 @@
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
-      <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
-      <a class="navbar-brand border border-secondary p-2 ml-lg-5">
-        <span id="logo">School Portal</span>
-      </a>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="" role="button" ><i class="fa fa-bars" aria-hidden="true" style="color:#e6e6ff"></i></span>
-      </button>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav w-100">
-          <li class="nav-item active ml-auto mr-lg-4 h6 font-weight-bold">
-            <a class="nav-link" style="float:left; margin-top: 10px; margin-right: 30px; font-size: 20px;" routerLink="/admin/main">Dashboard</a>          </li>
-        </div>
-      </div>
-    </nav>
-  </div>
+
+
+<body class="home" style="background-color: white;">
+  <div class="row display-table-row">
+
+  <app-sidebar></app-sidebar>
+
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
@@ -36,18 +30,19 @@
             </div>
 
             <div class="form-group">
-              <label for="inputPassword3">Enseignant</label>
+              <label for="inputPassword3">Chef de département</label>
               <select class="custom-select form-control"
                 formControlName="teacher">
-                <option value="">Choisir un Enseignant</option>
-                <option *ngFor="let teach of Teachers" value="{{teach._id}}">{{teach.firstname}} {{teach.lastname}}
+                <option value="">Choisir Enseignant</option>
+                <option *ngFor="let teacher of Teachers" value="{{teacher._id}}">{{teacher.name}}
                 </option>
               </select>
               <!-- error -->
-              <div class="invalid-feedback" *ngIf="submitted && myForm.teacher.errors?.required">
-                Choisir un Enseignant
+              <div class="invalid-feedback" *ngIf="submitted && myForm.dept.errors?.required">
+                Choisir un chef de Departement.
               </div>
             </div>
+
 
 
             <div class="form-group">
@@ -60,3 +55,5 @@
       </div>
     </div>
   </div>
+  </div>
+</body>

@@ -7,32 +7,15 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 <body class="home" style="background-color: white;">
-    <div class="container-fluid display-table">
-        <div class="row display-table-row">
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                <div class="logo" style="background-color: white ">
-                    <a hef="home.html"><img src="../../../assets/images/school.jpg" alt="merkery_logo" class="hidden-xs hidden-sm">
-                        <img src="../../../assets/images/school.jpg" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
+ <div class="container-fluid display-table">
+  <div class="row display-table-row">
 
-                    </a>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li ><a href="/admin/main"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Acceuil</span></a></li>
-                        <li><a href="/deptCreate" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Gestion Departments</span></a></li>
-                        <li><a href="/teacherCreate"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Enseignants</span></a></li>
-                        <li><a href="/teacherList" ><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Consulter/Modifier/Supprimer Enseignants</span></a></li>
-                        <li><a href="/hodCreate"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">HOD Selection</span></a></li>
-                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Agent de scolarité</span></a></li>
-                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Consulter/Modifier/Supprimer Agent de scolarité</span></a></li>
-                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Agent Service examen</span></a></li>
-                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Consulter/Modifier/Supprimer de scolarité</span></a></li>
-                        <li><a href="/studentCreate"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Student</span></a></li>
-                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Consulter/Modifier/Supprimer Etudiants</span></a></li>
-                        <li><a (click)="logout()" style="cursor: pointer;"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Déconnexion</span></a></li>
-                    </ul>
-                </div>
-            </div>
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+
+                  <app-sidebar ></app-sidebar>
+
+              </div>
+
 
 
 <div class="container">
@@ -95,7 +78,43 @@
     </table>
   </div>
 
-        </div>
+    </div>
     </div>
 
+
+
+
 </body>
+
+
+
+
+
+
+
+
+
+   <!--
+                <div class="logo" style="background-color: white ">
+                    <a hef="home.html"><img src="../../../assets/images/school.jpg" alt="merkery_logo" class="hidden-xs hidden-sm">
+                        <img src="../../../assets/images/school.jpg" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
+
+                    </a>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li ><a href="/admin/main"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Acceuil</span></a></li>
+                        <li><a href="/deptCreate" ><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Gestion Departments</span></a></li>
+                        <li><a href="/teacherCreate"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Enseignants</span></a></li>
+                        <li><a href="/teacherList" ><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm" aria-hidden="true">Consulter/Modifier/Supprimer Enseignants</span></a></li>
+                        <li><a href="/hodCreate"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">HOD Selection</span></a></li>
+                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Agent de scolarité</span></a></li>
+                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Consulter/Modifier/Supprimer Agent de scolarité</span></a></li>
+                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Agent Service examen</span></a></li>
+                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Consulter/Modifier/Supprimer de scolarité</span></a></li>
+                        <li><a href="/studentCreate"><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Créer Student</span></a></li>
+                        <li><a href=""><i class="fa fa-users" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Consulter/Modifier/Supprimer Etudiants</span></a></li>
+                        <li><a (click)="logout()" style="cursor: pointer;"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Déconnexion</span></a></li>
+                    </ul>
+                </div>
+                  -->

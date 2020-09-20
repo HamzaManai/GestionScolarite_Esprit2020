@@ -42,7 +42,7 @@ import { DepartmentEditComponent } from './components/department-edit/department
 import { CourseEditComponent } from './components/course-edit/course-edit.component';
 import { StudentCreateComponent } from './components/student-create/student-create.component';
 import { ClassCreateComponent } from './components/class-create/class-create.component';
-import { ClassEnrollComponent } from './components/class-enroll/class-enroll.component';
+import { PaiementhodComponent } from './components/Paiement-hod/Paiement-hod.component';
 import { StudentMainComponent } from './components/student-main/student-main.component';
 import { StudentClassComponent } from './components/student-class/student-class.component';
 import { ClassEnrollTeacherComponent } from './components/class-enroll-teacher/class-enroll-teacher.component';
@@ -50,6 +50,29 @@ import { TeacherClassViewComponent } from './components/teacher-class-view/teach
 import { StudentProfileComponent } from './components/student-profile/student-profile.component';
 import { StudentComplainComponent } from './components/student-complain/student-complain.component';
 import { HodComplainViewComponent } from './components/hod-complain-view/hod-complain-view.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import { StudentEditComponent } from './components/student-edit/student-edit.component';
+import { AgentScolariteCreateComponent } from './components/agent-scolarite-create/agent-scolarite-create.component';
+import { AgentScolariteEditComponent } from './components/agent-scolarite-edit/agent-scolarite-edit.component';
+import { AgentExamCreateComponent } from './components/agent-exam-create/agent-exam-create.component';
+import { AgentExamListComponent } from './components/agent-exam-list/agent-exam-list.component';
+import { AgentExamEditComponent } from './components/agent-exam-edit/agent-exam-edit.component';
+import { AgentScolariteListComponent } from './components/agent-scolarite-list/agent-scolarite-list.component';
+
+
+
+import { ToastrModule } from 'ngx-toastr';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CourseAgentScolariteComponent } from './components/course-agent-scolarite/course-agent-scolarite.component';
+import { CourseAgentExamComponent } from './components/course-agent-exam/course-agent-exam.component';
+import { SidebarHodComponent } from './components/sidebar-hod/sidebar-hod.component';
+import { SidebarTeacherComponent } from './components/sidebar-teacher/sidebar-teacher.component';
+import { SidebarAgentSCComponent } from './components/sidebar-agent-sc/sidebar-agent-sc.component';
+import { SidebarAgentEXComponent } from './components/sidebar-agent-ex/sidebar-agent-ex.component';
+import { SidebarStudentComponent } from './components/sidebar-student/sidebar-student.component';
+import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
+import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
+
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -77,7 +100,7 @@ export function tokenGetter() {
     CourseEditComponent,
     StudentCreateComponent,
     ClassCreateComponent,
-    ClassEnrollComponent,
+    PaiementhodComponent,
     StudentMainComponent,
     StudentClassComponent,
     ClassEnrollTeacherComponent,
@@ -85,6 +108,24 @@ export function tokenGetter() {
     StudentProfileComponent,
     StudentComplainComponent,
     HodComplainViewComponent,
+    StudentListComponent,
+    StudentEditComponent,
+    AgentScolariteCreateComponent,
+    AgentScolariteEditComponent,
+    AgentExamCreateComponent,
+    AgentExamListComponent,
+    AgentExamEditComponent,
+    AgentScolariteListComponent,
+    SidebarComponent,
+    CourseAgentScolariteComponent,
+    CourseAgentExamComponent,
+    SidebarHodComponent,
+    SidebarTeacherComponent,
+    SidebarAgentSCComponent,
+    SidebarAgentEXComponent,
+    SidebarStudentComponent,
+    AgentScolariteMainComponent,
+    AgentExamMainComponent,
 
 
 
@@ -97,7 +138,7 @@ export function tokenGetter() {
     HttpClientModule,
     MatCheckboxModule,
     NgSelectModule,
-
+    ToastrModule.forRoot(),
 
 
 

@@ -12,35 +12,38 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class DepartmentEditComponent implements OnInit {
   submitted = false;
   editForm: FormGroup;
-  Dept:any = [];
-  Employee:any = [];
   Teachers:any = [];
-  HOD:any = [];
 
   constructor(
     public fb: FormBuilder,
     private actRoute: ActivatedRoute,
-    private apiService: ApiService ,
+    private apiService: ApiService,
     private router: Router
-  ) {
-    this.readEmployee();
-  }
+  ) {}
 
   ngOnInit() {
-    this.updateDept();
     const id = this.actRoute.snapshot.paramMap.get('id');
     this.getEmployee(id);
+    this.readEmployee();
+
     this.editForm = this.fb.group({
       name: ['', [Validators.required]],
-      teacher : ['']
+      teacher: ['',Validators.required]
     });
   }
+
+
 
   // Getter to access form control
   get myForm() {
     return this.editForm.controls;
   }
-
+  readEmployee(){
+    this.apiService.getUsersByRole(2).subscribe((data) => {
+     this.Teachers = data;
+     console.log
+    })
+  }
   getEmployee(id) {
     this.apiService.getDeptt(id).subscribe(data => {
       this.editForm.setValue({
@@ -50,26 +53,6 @@ export class DepartmentEditComponent implements OnInit {
     });
   }
 
-  readEmployee(){
-    this.apiService.getTeachers().subscribe((data) => {
-     this.Employee = data;
-     for (let i = 0; i < this.Employee.length; i++)
-    {
-     if (this.Employee[i].role == 2 && this.Employee[i].hod == false)
-     {
-       this.Teachers.push(this.Employee[i]);
-     }
-    }
-    })
-  }
-
-
-  updateDept() {
-    this.editForm = this.fb.group({
-      name: ['', [Validators.required]],
-      teacher : ['']
-    });
-  }
 
   onSubmit() {
     this.submitted = true;
@@ -77,8 +60,7 @@ export class DepartmentEditComponent implements OnInit {
       return false;
     } else {
       if (window.confirm('Are you sure?')) {
-       let id = this.actRoute.snapshot.paramMap.get('id');
-     //  id = this.readEmployee();
+        const id = this.actRoute.snapshot.paramMap.get('id');
         this.apiService.updateDept(id, this.editForm.value)
           .subscribe(res => {
             this.router.navigateByUrl('/deptCreate');
