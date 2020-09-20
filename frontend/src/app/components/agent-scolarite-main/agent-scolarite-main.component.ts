@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../../service/api.service';
 
 @Component({
   selector: 'app-agent-scolarite-main',
@@ -7,6 +6,13 @@ import { ApiService } from './../../service/api.service';
   styleUrls: ['./agent-scolarite-main.component.css']
 })
 export class AgentScolariteMainComponent implements OnInit {
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+  /*
 
   Schedule:any = [];
   Schedule1:any = [];
@@ -14,16 +20,11 @@ export class AgentScolariteMainComponent implements OnInit {
   Employee: any=[];
   Game: any="Game";
   Practice:any="Practice";
-  
+
   MyGames:any=[];
-  constructor(public apiService: ApiService,private router: Router) { 
+  constructor(public apiService: ApiService,private router: Router) {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-}
 
 export class AdminMainComponent implements OnInit {
   Schedule:any = [];
@@ -32,9 +33,9 @@ export class AdminMainComponent implements OnInit {
   Employee: any=[];
   Game: any="Game";
   Practice:any="Practice";
-  
+
   MyGames:any=[];
-  constructor(public apiService: ApiService,private router: Router) { 
+  constructor(public apiService: ApiService,private router: Router) {
 
   }
 
@@ -51,4 +52,5 @@ export class AdminMainComponent implements OnInit {
     this.apiService.logout()
     this.router.navigate(['/login']);
   }
-}
+*/
+

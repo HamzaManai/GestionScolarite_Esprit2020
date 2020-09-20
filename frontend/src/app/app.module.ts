@@ -70,6 +70,8 @@ import { SidebarTeacherComponent } from './components/sidebar-teacher/sidebar-te
 import { SidebarAgentSCComponent } from './components/sidebar-agent-sc/sidebar-agent-sc.component';
 import { SidebarAgentEXComponent } from './components/sidebar-agent-ex/sidebar-agent-ex.component';
 import { SidebarStudentComponent } from './components/sidebar-student/sidebar-student.component';
+import { AgentScolariteMainComponent } from './components/agent-scolarite-main/agent-scolarite-main.component';
+import { AgentExamMainComponent } from './components/agent-exam-main/agent-exam-main.component';
 
 
 export function tokenGetter() {
@@ -122,6 +124,8 @@ export function tokenGetter() {
     SidebarAgentSCComponent,
     SidebarAgentEXComponent,
     SidebarStudentComponent,
+    AgentScolariteMainComponent,
+    AgentExamMainComponent,
 
 
 
