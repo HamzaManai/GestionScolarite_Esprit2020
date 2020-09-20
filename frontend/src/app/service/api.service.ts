@@ -278,22 +278,11 @@ updateComplaint(id): Observable<any> {
     let authToken = localStorage.getItem('access_token');
     return (authToken !== null) ? true : false;
   }
-  //
-  login(username: string, password: string):Observable<boolean>  {
-    let url = `${this.baseUri2}/login`;
-    return this.http.post<{token: string}>(url, {username: username, password: password})
-     .pipe(
-        map(result => {
-          localStorage.setItem('access_token', result.token);
-          return true;
-        })
-      );
 
-  }
+  // Login
 
   sendCredential(username: string, password: string): Observable<any>{
     let url = `${this.baseUri2}/login`;
-    const credentials = {username, password};
     return this.http.post<{token: string}>(url, {username: username, password: password})
      .pipe(
         map(result => {
