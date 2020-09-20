@@ -30,8 +30,7 @@ export class ClassCreateComponent implements OnInit {
   ) { 
     this.mainForm();
   
-    //this.readEmployee();
-   // this.readDept();
+  
   }
 
   ngOnInit() { this.getCourses();
@@ -58,9 +57,7 @@ export class ClassCreateComponent implements OnInit {
   }
 
   updateProfile(e){
-    // this.playerForm.get('game').setValue(e, {
-    //   onlySelf: true
-    // })
+   
     this.playerForm.get('course').setValue(e, {
      
       onlySelf: true

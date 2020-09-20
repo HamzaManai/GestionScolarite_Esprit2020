@@ -12,7 +12,7 @@ export class ApiDashService {
   
   baseUri:string = 'http://localhost:4000/api';
   baseUri2:string = 'http://localhost:4000/users';
-  baseUri3:string = 'http://localhost:4000/games';
+  baseUri3:string = 'http://localhost:4000/classes';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient,public router: Router) { }
