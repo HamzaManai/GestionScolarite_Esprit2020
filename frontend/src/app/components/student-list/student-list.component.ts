@@ -13,6 +13,7 @@ export class StudentListComponent implements OnInit {
   Employee:any = [];
   Students:any = [];
   Dept:any = [];
+  date = new Date();
 
   constructor(private apiService: ApiService, private router: Router ,private toastService:ToastrService) {
     this.readEmployee();

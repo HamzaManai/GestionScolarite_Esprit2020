@@ -12,9 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 export class AgentExamListComponent implements OnInit {
   Employee:any = [];
   Agentx:any = [];
+  date = new Date ();
 
-
-  constructor(private apiService: ApiService, private router: Router ,private toastService:ToastrService) { 
+  constructor(private apiService: ApiService, private router: Router ,private toastService:ToastrService) {
     this.readEmployee();
   }
 
@@ -23,11 +23,11 @@ export class AgentExamListComponent implements OnInit {
   readEmployee(){
     this.apiService.getUsersByRole(3).subscribe((data) => {
      this.Agentx = data;
-    
-    })    
+
+    })
   }
 
-  
+
   removeEmployee(id,index) {
     if(window.confirm('Vous étre sûre?')) {
       this.apiService.delete(id).subscribe((res) => {
@@ -37,7 +37,7 @@ export class AgentExamListComponent implements OnInit {
        err => {
          this.toastService.error("Error")
          console.error(err)
-       })  
+       })
     }
   }
 }

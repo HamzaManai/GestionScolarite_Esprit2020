@@ -29,6 +29,7 @@ export class CourseViewComponent implements OnInit {
   ngOnInit() {
     this.readCourse();
 
+
   }
 
   readCourse(){

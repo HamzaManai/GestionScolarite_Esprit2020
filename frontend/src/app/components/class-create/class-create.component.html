@@ -78,7 +78,7 @@
             <td>{{dept.name}}</td>
             <td *ngFor="let crs of dept.courses; let i = index">{{crs.name}}</td>
             <td class="text-center edit-block">
-              <span class="edit" [routerLink]="['/class/enroll/', dept._id]">
+              <span class="edit" [routerLink]="['/class/enroll/:id', dept._id]">
                 <button type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Ajouter Etudiant</button>
               </span>
               <span class="edit" [routerLink]="['/teacher/class/', dept._id]">

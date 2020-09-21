@@ -81,7 +81,7 @@
             <td >{{cour.teacher.firstname}} {{cour.teacher.lastname}}</td>
             <td class="text-center edit-block">
               <span class="edit" >
-                <button type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Edit</button>
+                <button [routerLink]="['/courseEdit/:id',cour._id]" type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Edit</button>
               </span>
               <span class="delete" (click)="removeCourse(cour._id)">
                 <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
@@ -93,6 +93,31 @@
       </table>
     </div>
 
+    <div class="container" style="margin-bottom: 60px;">
+      <div class="jumbotron mt-5">
+          <div class="col-sm-8 mx-auto">
+            <h1 class="text-center">Vos modules</h1><br>
+            <hr>
+          </div>
+        </div>
+        <p *ngIf="Teachers.length <= 0" class="no-data text-center" style="	color: #007bac; font-size: 20px; font-weight: bold;">Il n'y a pas encore de module ajoutés!</p>
+
+        <!-- Employee list -->
+        <table class="table table-bordered" *ngIf="Teachers.length > 0">
+          <thead class="table-primary">
+            <tr>
+              <th scope="col">Nom de module</th>
+              <th scope="col">Durée module</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let teach of Teachers; let i = index">
+              <td>{{teach.name}}</td>
+              <td>{{teach.hourly_load}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
  </body>

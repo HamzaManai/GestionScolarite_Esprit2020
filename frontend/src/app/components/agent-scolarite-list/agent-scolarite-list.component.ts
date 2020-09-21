@@ -13,8 +13,8 @@ export class AgentScolariteListComponent implements OnInit {
   Employee:any = [];
   Agents:any = [];
   Dept:any = [];
-
-  constructor(private apiService: ApiService, private router: Router,private toastService:ToastrService) { 
+  date= new Date();
+  constructor(private apiService: ApiService, private router: Router,private toastService:ToastrService) {
     this.readEmployee();
   }
 
@@ -23,9 +23,9 @@ export class AgentScolariteListComponent implements OnInit {
   readEmployee(){
     this.apiService.getUsersByRole(4).subscribe((data) => {
      this.Agents = data;
-     
 
-    })  
+
+    })
   }
 
 
@@ -39,7 +39,7 @@ export class AgentScolariteListComponent implements OnInit {
        err => {
          this.toastService.error("Error")
          console.error(err)
-       })  
+       })
     }
   }
 

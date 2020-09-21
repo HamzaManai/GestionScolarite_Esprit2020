@@ -59,7 +59,7 @@
 
             <div class="form-group">
               <label for="Number">Telephone</label>
-              <input class="form-control" type="number" formControlName="tlf">
+              <input class="form-control" type="number" formControlName="tlf" max="8">
               <!-- error -->
               <div class="invalid-feedback" *ngIf="submitted && myForm.tlf.errors?.required">
                  Telephone is required.
@@ -68,7 +68,7 @@
 
             <div class="form-group">
               <label for="Email">Email</label>
-              <input class="form-control" type="email" formControlName="email">
+              <input class="form-control" type="email" formControlName="email" placeholder="email@email.com">
               <!-- error -->
             <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
                  Email is required.

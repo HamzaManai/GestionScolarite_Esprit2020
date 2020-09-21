@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ['./hod-create.component.css']
 })
 export class HodCreateComponent implements OnInit {
-  
+
   submitted = false;
   playerForm: FormGroup;
   Dept:any = [];
@@ -22,7 +22,7 @@ export class HodCreateComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private apiService: ApiService
-  ) { 
+  ) {
     this.mainForm();
     this.readDept();
     this.readEmployee();
@@ -40,7 +40,7 @@ export class HodCreateComponent implements OnInit {
         this.HOD.push(this.Dept[i]);
       }
      }
-    })    
+    })
   }
 
   readEmployee(){
@@ -53,7 +53,7 @@ export class HodCreateComponent implements OnInit {
        this.Teachers.push(this.Employee[i]);
      }
     }
-    })    
+    })
   }
 
   mainForm() {
@@ -62,7 +62,7 @@ export class HodCreateComponent implements OnInit {
       teacher: ['']
     })
   }
- 
+
 
   // Getter to access form control
   get myForm(){
@@ -70,18 +70,18 @@ export class HodCreateComponent implements OnInit {
   }
 
   onSubmit() {
-   
+
     this.submitted = true;
-  
-     
-    
+
+
+
     if (!this.playerForm.valid) {
       return false;
     } else {
       this.apiService.HODRegister(this.playerForm.value).subscribe(
         (res) => {
           console.log('HOD successfully selected!')
-          this.ngZone.run(() => this.router.navigateByUrl('/admin/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('/deptCreate'))
         }, (error) => {
           // this.router.navigateByUrl('/login')
           alert(error);

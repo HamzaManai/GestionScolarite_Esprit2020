@@ -31,7 +31,7 @@ export class AgentExamCreateComponent implements OnInit {
     })
   }
 
- 
+
 
   mainForm() {
     this.playerForm = this.fb.group({
@@ -67,7 +67,7 @@ export class AgentExamCreateComponent implements OnInit {
       this.apiService.RegisterStudent(this.playerForm.value).subscribe(
         (res) => {
           console.log('Agent services examen ajouté!')
-          this.ngZone.run(() => this.router.navigateByUrl('/admin/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('agentExamList'))
         }, (error) => {
           // this.router.navigateByUrl('/login')
           alert(error);

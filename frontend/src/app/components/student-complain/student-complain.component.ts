@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import {  ApiService } from './../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import * as moment from 'moment';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-student-complain',
@@ -9,6 +11,8 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ['./student-complain.component.css']
 })
 export class StudentComplainComponent implements OnInit {
+  moment = moment ;
+  messages: any;
 
   submitted = false;
   playerForm: FormGroup;
@@ -21,20 +25,29 @@ export class StudentComplainComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private apiService: ApiService
-  ) { 
+  ) {
     this.mainForm();
- 
+
     this.readMessages();
     this.apiService.getUserProfile11().subscribe(res => {
       this.currentUser = res;
 
-    
+
      this.id=this.currentUser._id;
-  
+
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getAllMessages();
+    $(document).ready(function(){
+      $('[data-toggle="offcanvas"]').click(function(){
+          $("#navigation").toggleClass("hidden-xs");
+      });
+   });
+  // this.readMatch();
+
+  }
 
 
   mainForm() {
@@ -46,7 +59,7 @@ export class StudentComplainComponent implements OnInit {
   readMessages(){
     this.apiService.getStudentComplaints().subscribe((data) => {
      this.Complaints = data;
-    })   
+    })
 
   }
 
@@ -62,7 +75,9 @@ export class StudentComplainComponent implements OnInit {
       this.apiService.createComplaint(this.playerForm.value,this.id).subscribe(
         (res) => {
           console.log('Complaint successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/student/main'))
+          window.location.reload();
+
+          this.ngZone.run(() => this.router.navigateByUrl('student/complain'))
         }, (error) => {
           alert(error);
           console.log(error);
@@ -70,6 +85,15 @@ export class StudentComplainComponent implements OnInit {
         });
     }
   }
+  getAllMessages() {
+    this.apiService.apiGetAll(`/getAllMessages`).subscribe((response: any) => {
+      this.messages = response;
+  });
+  console.log(this.messages);
+
+  }
+
+
 
 
 }

@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";;
 })
 export class ClassCreateComponent implements OnInit {
 
-  
+
   submitted = false;
   playerForm: FormGroup;
   Employee:any = [];
@@ -27,9 +27,9 @@ export class ClassCreateComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private apiService: ApiService
-  ) { 
+  ) {
     this.mainForm();
-  
+
     //this.readEmployee();
    // this.readDept();
   }
@@ -39,15 +39,15 @@ export class ClassCreateComponent implements OnInit {
   getCourses(){
     this.apiService.getCourses().subscribe((data) => {
       this.Course = data;
-     })    
+     })
   }
 
   getClass(){
- 
+
     this.apiService.getClasses().subscribe((data) => {
-  
+
       this.Clas = data;
-     })    
+     })
   }
 
   mainForm() {
@@ -62,26 +62,26 @@ export class ClassCreateComponent implements OnInit {
     //   onlySelf: true
     // })
     this.playerForm.get('course').setValue(e, {
-     
+
       onlySelf: true
     })
-  
+
   }
   updateCourseIds()
   {
     for (let gam of this.courses) {
       this.courseIds.push(gam._id);
-      
+
 
     }
   }
 
- 
+
 
   readDept(){
     this.apiService.getDept().subscribe((data) => {
      this.Dept = data;
-    })    
+    })
   }
 
   // Getter to access form control
@@ -90,21 +90,21 @@ export class ClassCreateComponent implements OnInit {
   }
 
   onSubmit() {
-   
+
     this.submitted = true;
     this.updateCourseIds();
     this.updateProfile(this.courseIds);
-   
+
 
     if (!this.playerForm.valid) {
       alert("false")
       return false;
     } else {
-  
+
       this.apiService.createClass(this.playerForm.value).subscribe(
         (res) => {
           alert('Class successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/hod/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('/class/create'))
         }, (error) => {
           alert(error);
           console.log(error);
@@ -113,7 +113,7 @@ export class ClassCreateComponent implements OnInit {
     }
   }
 
- 
+
 }
 
 

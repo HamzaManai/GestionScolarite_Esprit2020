@@ -77,6 +77,7 @@ import { AgentScolariteModuleComponent } from './components/agent-scolarite-modu
 import { AgentScolariteMessagerieComponent } from './components/agent-scolarite-messagerie/agent-scolarite-messagerie.component';
 import { AgentExamenModuleComponent } from './components/agent-examen-module/agent-examen-module.component';
 import { HodCourseValidComponent } from './components/hod-course-valid/hod-course-valid.component';
+import { ClassEnrollStudentComponent } from './components/class-enroll-student/class-enroll-student.component';
 
 
 export function tokenGetter() {
@@ -134,6 +135,7 @@ export function tokenGetter() {
     AgentScolariteMessagerieComponent,
     AgentExamenModuleComponent,
     HodCourseValidComponent,
+    ClassEnrollStudentComponent,
 
 
 

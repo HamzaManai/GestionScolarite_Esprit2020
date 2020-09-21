@@ -1,3 +1,5 @@
+<body class="home" style="background-color: white;">
+
 <div class="container-fluid">
     <nav class="navbar navbar-expand-md shadow-lg " style="height: 15vh; z-index: 10">
       <!--  <img src="assets/pics/prisports.jpg" class="logo img-fluid" style="height: 11vh">-->
@@ -25,13 +27,13 @@
         <div class="form-horizontal">
           <h5 class="text-center">Assigner Enseignant</h5><hr>
 
-         
+
           <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
             <div class="form-group">
 
-                <div class="overflow-box"> 
-                    <ng-select        
+                <div class="overflow-box">
+                    <ng-select
                               #select
                                [items]="dupTeacher"
                                bindLabel="firstname"
@@ -39,22 +41,22 @@
                                placeholder="Choose Teacher/Sir"
                                [(ngModel)]="teachers"
                                name="mySelectBox"
-                              
+
                                formControlName="teacher"
                                required
                                >
-                             
-                   </ng-select> 
+
+                   </ng-select>
               </div>
-    
+
             </div>
-  
+
             <div class="form-group">
               <button type="submit" id="signup-btn" class="btn btn-lg btn-primary btn-block">Assigner</button>
             </div>
-  
+
           </form>
-  
+
         </div>
       </div>
     </div>

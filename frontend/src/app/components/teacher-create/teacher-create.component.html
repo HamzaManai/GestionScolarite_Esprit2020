@@ -57,7 +57,7 @@
 
                 <div class="form-group">
                   <label for="inputDate">Num Telephone</label>
-                  <input class="form-control" type="number" formControlName="tlf">
+                  <input maxlength = "8" class="form-control" type="number" formControlName="tlf" >
                   <!-- error -->
                   <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
                      votre Telephone est obligatoire!
@@ -67,7 +67,7 @@
 
                   <div class="form-group">
                     <label for="inputDate">Email</label>
-                    <input class="form-control" type="email" formControlName="email">
+                    <input class="form-control" type="email" formControlName="email" placeholder="email@email.com">
                     <!-- error -->
                     <div class="invalid-feedback" *ngIf="submitted && myForm.lastname.errors?.required">
                        votre Date est obligatoire!

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { userData, ApiService } from './../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-course-manage',
@@ -17,12 +18,19 @@ export class CourseManageComponent implements OnInit {
   Course:any = [];
   Dept:any = [];
 
+  pForm: FormGroup;
+  TS:any = [];
+  Cours:any = [];
+  currentUser:any = [];
+
   Ranks: any = ['Beginner', 'Medium', 'Advance'];
   constructor(
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private actRoute: ActivatedRoute,
+
   ) {
 
   }
@@ -31,6 +39,7 @@ export class CourseManageComponent implements OnInit {
     this.mainForm();
     this.readEmployee();
     this.readCourse();
+    this.readCours();
   }
 
 
@@ -61,6 +70,30 @@ export class CourseManageComponent implements OnInit {
      console.log('dara', data);
 
     })
+  }
+
+
+  readCours(){
+    this.apiService.profile().subscribe(
+      user => {
+        this.currentUser = user._id
+      },
+      err => {
+        console.error(err)
+      }
+    )
+    this.apiService.getCourses().subscribe((data) => {
+     this.Course = data;
+console.log('data', this.Course);
+
+     for (let i = 0; i < this.Course.length; i++)
+     {
+      if (this.Course[i].teacher._id == this.currentUser)
+      {
+        this.Teachers.push(this.Course[i]);
+      }
+     }
+     })
   }
 
   // Getter to access form control

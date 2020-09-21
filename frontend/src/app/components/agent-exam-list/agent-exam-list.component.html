@@ -27,7 +27,7 @@
           <tr *ngFor="let agent of Agentx; let i = index">
             <td>{{agent.firstname}}</td>
             <td>{{agent.lastname}}</td>
-            <td>{{agent.DateNaiss}}</td>
+            <td>{{agent.DateNaiss | date : 'dd/MM/yyyy'}}</td>
             <td>{{agent.tlf}}</td>
             <td>{{agent.email}}</td>
 

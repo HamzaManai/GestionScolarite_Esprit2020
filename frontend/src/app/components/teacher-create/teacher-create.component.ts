@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { userData, ApiService } from './../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-teacher-create',
@@ -9,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ['./teacher-create.component.css']
 })
 export class TeacherCreateComponent implements OnInit {
+  moment = moment ;
 
   submitted = false;
   playerForm: FormGroup;

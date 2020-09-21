@@ -8,6 +8,7 @@
 
 
       </div>
+      <br><br><br><br><br><br>
         <div class="container" style="margin-top: -80px; margin-bottom: 60px;">
           <div class="jumbotron mt-5">
               <div class="col-sm-8 mx-auto">
@@ -35,7 +36,7 @@
                   <td >{{cour.teacher.firstname}} {{cour.teacher.lastname}}</td>
                   <td class="text-center edit-block">
                     <span class="update" (click)="updateCourse(cour._id)">
-                      <button  [ngClass]="{disabled : cour.test}" type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Valider</button>
+                      <button  [ngClass]="{disabled : cour.state}" type="button" class="btn btn-success btn-sm" style="margin-right: 20px;">Valider</button>
                     </span>
                   </td>
                 </tr>

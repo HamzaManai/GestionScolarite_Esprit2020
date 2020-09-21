@@ -44,4 +44,27 @@
         </table>
       </div>
 
+
+
+      <div class="container" >
+        <div class="jumbotron mt-5">
+            <div class="col-sm-8 mx-auto">
+              <h1 class="text-center">Publie Message</h1><br>
+              <hr>
+              <form [formGroup]="messageform" (submit)="sendMessage()">
+                <label for="title">Title</label>
+
+                <input formControlName="title" id="title"/>
+                <br>
+                <br>
+                <label for="content">Content</label>
+                <textarea  formControlName="content" id="content" >
+                  </textarea>
+                <button class="btn btn-success" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
     </div></body>

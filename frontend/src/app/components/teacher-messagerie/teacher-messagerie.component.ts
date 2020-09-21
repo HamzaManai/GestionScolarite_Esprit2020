@@ -20,16 +20,16 @@ export class TeacherMessagerieComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private apiService: ApiService
-  ) { 
+  ) {
     this.mainForm();
- 
+
     this.readMessages();
     this.apiService.getUserProfile11().subscribe(res => {
       this.currentUser = res;
 
-    
+
      this.id=this.currentUser._id;
-  
+
     })
   }
 
@@ -45,7 +45,7 @@ export class TeacherMessagerieComponent implements OnInit {
   readMessages(){
     this.apiService.getStudentComplaints().subscribe((data) => {
      this.Complaints = data;
-    })   
+    })
 
   }
 
@@ -61,7 +61,7 @@ export class TeacherMessagerieComponent implements OnInit {
       this.apiService.createComplaint(this.playerForm.value,this.id).subscribe(
         (res) => {
           console.log('Complaint successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/teacher/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('/teacher/messagerie'))
         }, (error) => {
           alert(error);
           console.log(error);

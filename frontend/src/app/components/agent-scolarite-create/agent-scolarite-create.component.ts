@@ -11,7 +11,7 @@ export class AgentScolariteCreateComponent implements OnInit {
 
   submitted = false;
   playerForm: FormGroup;
- 
+
 
 
   constructor(
@@ -63,7 +63,7 @@ export class AgentScolariteCreateComponent implements OnInit {
       this.apiService.RegisterStudent(this.playerForm.value).subscribe(
         (res) => {
           console.log('Agent de scolarité ajouté!')
-          this.ngZone.run(() => this.router.navigateByUrl('/admin/main'))
+          this.ngZone.run(() => this.router.navigateByUrl('agentScolariteList'))
         }, (error) => {
           // this.router.navigateByUrl('/login')
           alert(error);

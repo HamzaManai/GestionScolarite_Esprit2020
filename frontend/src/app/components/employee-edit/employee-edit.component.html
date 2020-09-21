@@ -1,3 +1,5 @@
+<body class="home" style="background-color: white;">
+
 <div class="row justify-content-center">
     <div class="col-md-4 register-employee">
       <!-- form card register -->
@@ -7,7 +9,7 @@
         </div>
         <div class="card-body">
           <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
- 
+
             <div class="form-group">
               <label for="inputName">Nom</label>
               <input class="form-control" type="text" formControlName="name">
@@ -26,7 +28,7 @@
                 Entrer un email valid.
               </div>
             </div>
- 
+
             <div class="form-group">
               <label for="inputPassword3">Designation</label>
               <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
@@ -40,7 +42,7 @@
                 Choisir designation.
               </div>
             </div>
- 
+
             <div class="form-group">
               <label for="inputVerify3">Num Télephone</label>
               <input class="form-control" type="text" formControlName="phoneNumber">
@@ -52,7 +54,7 @@
                 Seulement des nombres!
               </div>
             </div>
- 
+
             <div class="form-group">
               <button class="btn btn-success btn-lg btn-block" type="submit">Modifier</button>
             </div>
@@ -61,3 +63,4 @@
       </div><!-- form  -->
     </div>
   </div>
+</body>

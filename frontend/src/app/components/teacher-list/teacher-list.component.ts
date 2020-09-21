@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { userData, ApiService } from './../../service/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-teacher-list',
@@ -9,10 +10,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListComponent implements OnInit {
+  moment = moment ;
 
   Employee:any = [];
   Teachers:any = [];
   Dept:any = [];
+  date = new Date();
 
   constructor(private apiService: ApiService, private router: Router,private toastService:ToastrService) {
     this.readEmployee();
@@ -24,6 +27,7 @@ export class TeacherListComponent implements OnInit {
   readEmployee(){
     this.apiService.getUsersByRole(2).subscribe((data) => {
      this.Teachers = data;
+    //d=this.Teachers.DateNaiss;
      console.log
     })
   }
