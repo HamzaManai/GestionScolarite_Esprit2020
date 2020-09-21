@@ -24,6 +24,7 @@ export class ApiService {
   baseUri2: string = 'http://localhost:4000/users';
   baseUri3: string = 'http://localhost:4000/class';
   baseUri4: string = 'http://localhost:4000/course';
+  baseUri5: string = 'http://localhost:4000/message';
 
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -446,15 +447,16 @@ export class ApiService {
     return throwError(errorMessage);
   }
 
-  // apiPost(endpoint, body) {
-  //   return this.http.post(this.apiUrl + endpoint, body);
-  // }
+  apiPost(endpoint, body) {
+    return this.http.post(this.baseUri5 + endpoint, body);
+  }
   // apiDelete(endpoint) {
   //   return this.http.delete(this.apiUrl + endpoint);
   // }
-  // apiGetAll(endpoint) {
-  //   return this.http.get(this.apiUrl + endpoint);
-  // }
+
+  apiGetAll(endpoint) {
+    return this.http.get(this.baseUri5 + endpoint);
+  }
 
   apiPut(endpoint, body) {
     return this.http.put(this.baseUri4 + endpoint, body);

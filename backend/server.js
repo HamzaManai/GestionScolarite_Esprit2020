@@ -36,6 +36,7 @@ var usersRouter = require('../backend/routes/users');
 var adminRouter = require('../backend/routes/admin.route');
 var clasRouter = require('../backend/routes/clas.route');
 var courseRouter = require('./routes/course');
+var messageRouter = require('../backend/routes/message');
 
 
 
@@ -63,6 +64,7 @@ app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 app.use('/class', clasRouter);
 app.use('/course', courseRouter);
+app.use('/message', messageRouter);
 
 // Create port
 const port = process.env.PORT || 4000;
